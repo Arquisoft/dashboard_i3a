@@ -34,22 +34,15 @@ public class MainControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.base = new URL("http://localhost:" + port + "/");
+		this.base = new URL("http://localhost:" + "8080" + "/dashboard_i3a");
 		template = new TestRestTemplate();
 	}
 
 	@Test
 	public void getLanding() throws Exception {
-		String userURI = base.toString() + "/user";  
+		String userURI = base.toString() + "/users";  
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		assertThat(response.getBody(), containsString("Hola"));
-	}
-	
-	@Test
-	public void getUser() throws Exception {
-		String userURI = base.toString() + "/user";  
-		ResponseEntity<String> response = template.getForEntity(userURI, String.class);
-		UserInfo expected = new UserInfo("pepe",0);
+		assertThat(response.getBody(), containsString("pablo"));
 	}
 
 }

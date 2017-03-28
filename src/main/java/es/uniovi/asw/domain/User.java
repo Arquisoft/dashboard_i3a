@@ -1,13 +1,19 @@
 package es.uniovi.asw.domain;
 
 import java.sql.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity(name = "Users")
 public class User {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String login;
 	private String password;
@@ -17,6 +23,12 @@ public class User {
 	private String nationality;
 	private String DNI;
 	private Date birthday;
+	
+	@OneToMany(mappedBy = "owner")
+	private List<Proposal> proposals;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Vote> votes;
 
 	public User() {
 	}
@@ -189,5 +201,21 @@ public class User {
 		return "User [id=" + id + ", login=" + login + ", password=" + password + ", firstName=" + firstname
 				+ ", lastName=" + lastname + ", address=" + address + ", nationality=" + nationality + ", DNI=" + DNI
 				+ ", birthday=" + birthday + "]";
+	}
+
+	public List<Proposal> getProposals() {
+		return proposals;
+	}
+
+	public void setProposal(List<Proposal> proposals) {
+		this.proposals = proposals;
+	}
+
+	public List<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVote(List<Vote> votes) {
+		this.votes = votes;
 	}
 }

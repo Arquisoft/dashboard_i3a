@@ -11,7 +11,7 @@ public class Proposal {
 	private String title;
 	private String description;
 	
-	private Map<User, List<Comment>> votes;
+	private Map<User, Comment> votes;
 	
 	
 	

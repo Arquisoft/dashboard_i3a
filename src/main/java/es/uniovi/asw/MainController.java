@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import es.uniovi.asw.domain.User;
+import es.uniovi.asw.dto.UserDto;
 import es.uniovi.asw.dto.UserLogin;
 import es.uniovi.asw.services.Dashboard;
 
@@ -49,7 +50,9 @@ public class MainController {
 		}
 		//Else, we navigate to /dashboard
 		else {
+			UserDto userDto = UserDto.transform(user);
 			model = new ModelAndView("dashboard");
+			model.addObject("userDto", userDto);
 		}
 		return model;
     }

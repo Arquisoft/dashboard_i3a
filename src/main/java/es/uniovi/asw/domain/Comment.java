@@ -24,7 +24,7 @@ public class Comment {
 	public Comment() {
 	}
 
-	public Comment(Long id, Vote vote, String title, String comments) {
+	public Comment(Vote vote, String title, String comments) {
 		super();
 		this.vote = vote;
 		this.title = title;

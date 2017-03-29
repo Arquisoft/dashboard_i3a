@@ -39,10 +39,9 @@ public class User {
 	public User() {
 	}
 
-	public User(Long id, String login, String password, String firstname, String lastname, String address,
+	public User(String login, String password, String firstname, String lastname, String address,
 			String nationality, String dNI, Date birthday) {
 		super();
-		this.id = id;
 		this.login = login;
 		this.password = password;
 		this.firstname = firstname;

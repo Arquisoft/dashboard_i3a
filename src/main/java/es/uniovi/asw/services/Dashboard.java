@@ -35,7 +35,16 @@ public class Dashboard implements ShowInfo, SendAlarm{
 		System.out.println(voteRepository.findAll().stream().map(v -> v.toString()).reduce("", String::concat));
 		System.out.println(commentRepository.findAll().stream().map(c -> c.toString()).reduce("", String::concat));
 		System.out.println(proposalRepository.findAll().stream().map(p -> p.toString()).reduce("", String::concat));;
-		
+	}
+	
+	/**
+	 * Get the info of a participant passing as parameters its credentials
+	 * @param login - login of the participant to retrieve
+	 * @param password - password of the participant to retrieve
+	 */
+	public User GetParticipant(String login, String password) {
+		User user = userRepository.findByLoginAndPassword(login, password);
+		return user;
 	}
 
 }

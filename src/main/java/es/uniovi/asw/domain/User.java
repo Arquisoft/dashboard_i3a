@@ -4,10 +4,14 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity(name = "Users")
 public class User {
@@ -24,10 +28,12 @@ public class User {
 	private String DNI;
 	private Date birthday;
 	
-	@OneToMany(mappedBy = "owner")
+	@OneToMany(mappedBy = "owner", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Proposal> proposals;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Vote> votes;
 
 	public User() {

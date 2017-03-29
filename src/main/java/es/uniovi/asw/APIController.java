@@ -18,8 +18,7 @@ public class APIController {
     
     @RequestMapping("/users")
     public List<User> user() {
-    	List<User> users =  userRepository.findAll();
-        return users;
+        return null;
     }
 
 }

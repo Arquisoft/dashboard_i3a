@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity(name = "Votescomments")
 @JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
-public class VoteComment{
+public class VoteComment implements Vote{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,7 +52,8 @@ public class VoteComment{
 	public void setComment(Comment comment) {
 		this.comment = comment;
 	}
-
+	
+	@Override
 	public User getUser() {
 		return user;
 	}
@@ -61,6 +62,7 @@ public class VoteComment{
 		this.user = user;
 	}
 	
+	@Override
 	public boolean isValue() {
 		return value;
 	}

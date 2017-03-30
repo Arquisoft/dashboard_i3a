@@ -1,10 +1,10 @@
-INSERT INTO Users (login, password, firstName, lastName, address, nationality, DNI, birthday) 
+INSERT INTO Users (login, password, firstName, lastName, address, nationality, DNI, birthday, gender) 
 VALUES
-	('freije@example.com', 'asdf', 'Fernando', 'Freije', 'Calle Adosinda', 'Español', '00000001A', '1990-01-01'),
-	('pablo@example.com', 'asdf', 'Pablo', 'Garcia', 'Calle Asturias', 'Español', '00000002A', '1991-01-01'),
-	('david@example.com', 'asdf', 'David', 'Garcia', 'Calle Azteca', 'Español', '00000003A', '1992-01-01'),
-	('Juan@example.com', 'asdf', 'Juan', 'Torres', 'Calle Federico Garcia Lorca', 'Español', '90500084Y', '1993-01-01'),
-	('Luis@example.com', 'asdf', 'Luis', 'López', 'Calle Adosinda', 'Español', '19160962F', '1994-01-01');
+	('freije@example.com', 'asdf', 'Fernando', 'Freije', 'Calle Adosinda', 'Español', '00000001A', '1990-01-01', 'male'),
+	('pablo@example.com', 'asdf', 'Pablo', 'Garcia', 'Calle Asturias', 'Español', '00000002A', '1991-01-01', 'male'),
+	('david@example.com', 'asdf', 'David', 'Garcia', 'Calle Azteca', 'Español', '00000003A', '1992-01-01', 'male'),
+	('Juan@example.com', 'asdf', 'Juan', 'Torres', 'Calle Federico Garcia Lorca', 'Español', '90500084Y', '1993-01-01', 'male'),
+	('Luis@example.com', 'asdf', 'Luis', 'López', 'Calle Adosinda', 'Español', '19160962F', '1994-01-01', 'male');
 	
 
 INSERT INTO Proposals (id_owner, title, description) 

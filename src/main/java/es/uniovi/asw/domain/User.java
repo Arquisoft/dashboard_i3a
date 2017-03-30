@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity(name = "Users")
-@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "@id")
 public class User {
 
 	@Id
@@ -31,20 +31,21 @@ public class User {
 	private String nationality;
 	private String DNI;
 	private Date birthday;
-	
-	@OneToMany(mappedBy = "owner", fetch=FetchType.EAGER)
+	private String gender;
+
+	@OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Proposal> proposals;
-	
-	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<VoteProposal> proposal_votes;
 
 	public User() {
 	}
 
-	public User(String login, String password, String firstname, String lastname, String address,
-			String nationality, String dNI, Date birthday) {
+	public User(String login, String password, String firstname, String lastname, String address, String nationality,
+			String dNI, Date birthday, String gender) {
 		super();
 		this.login = login;
 		this.password = password;
@@ -54,6 +55,7 @@ public class User {
 		this.nationality = nationality;
 		this.DNI = dNI;
 		this.birthday = birthday;
+		this.gender = gender;
 	}
 
 	public Long getId() {
@@ -227,4 +229,9 @@ public class User {
 	public void setVoteProposal(List<VoteProposal> proposal_votes) {
 		this.proposal_votes = proposal_votes;
 	}
+
+	public String getGender() {
+		return gender;
+	}
+
 }

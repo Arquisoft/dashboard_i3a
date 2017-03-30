@@ -30,10 +30,10 @@ public class Dashboard implements ShowInfo, SendAlarm{
 	
 	public void listAll(){
 		System.out.println(userRepository.findAll().stream().map(u -> u.toString()).reduce("", String::concat));
-		System.out.println(proposalRepository.findAll().stream().map(p -> p.toString()).reduce("", String::concat));;
+		System.out.println(proposalRepository.findAll().stream().map(p -> p.toString()).reduce("", String::concat));
 		System.out.println(voteProposalRepository.findAll().stream().map(v -> v.toString()).reduce("", String::concat));
 		System.out.println(commentRepository.findAll().stream().map(c -> c.toString()).reduce("", String::concat));
-		System.out.println(voteCommentRepository.findAll().stream().map(v -> v.toString()).reduce("", String::concat));;
+		System.out.println(voteCommentRepository.findAll().stream().map(v -> v.toString()).reduce("", String::concat));
 		
 	}
 	
@@ -42,7 +42,7 @@ public class Dashboard implements ShowInfo, SendAlarm{
 	 * @param login - login of the participant to retrieve
 	 * @param password - password of the participant to retrieve
 	 */
-	public User GetParticipant(String login, String password) {
+	public User getParticipant(String login, String password) {
 		User user = userRepository.findByLoginAndPassword(login, password);
 		return user;
 	}

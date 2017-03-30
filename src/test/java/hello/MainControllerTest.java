@@ -1,7 +1,6 @@
 package hello;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import java.net.URL;
 
@@ -19,18 +18,17 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import es.uniovi.asw.Application;
-import es.uniovi.asw.UserInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
-@IntegrationTest({"server.port=0"})
+@IntegrationTest({ "server.port=0" })
 public class MainControllerTest {
 
-    @Value("${local.server.port}")
-    private int port;
+	@Value("${local.server.port}")
+	private int port;
 
-    private URL base;
+	private URL base;
 	private RestTemplate template;
 
 	@Before
@@ -42,9 +40,10 @@ public class MainControllerTest {
 	@Ignore
 	@Test
 	public void getLanding() throws Exception {
-		String userURI = base.toString() + "/";  
+		String userURI = base.toString() + "/";
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		//assertThat(response.getBody(), containsString("login"));
+		assertTrue(Character.isDigit(1));
+		// assertThat(response.getBody(), containsString("login"));
 	}
 
 }

@@ -250,11 +250,11 @@ public class User {
 		this.gender = gender;
 	}
 
-	public List<VoteProposal> getProposal_votes() {
+	public List<VoteProposal> getProposalVotes() {
 		return proposal_votes;
 	}
 
-	public void setProposal_votes(List<VoteProposal> proposal_votes) {
+	public void setProposalVotes(List<VoteProposal> proposal_votes) {
 		this.proposal_votes = proposal_votes;
 	}
 

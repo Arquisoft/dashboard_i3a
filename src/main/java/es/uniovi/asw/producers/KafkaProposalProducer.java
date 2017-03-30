@@ -22,7 +22,7 @@ public class KafkaProposalProducer {
 	    @Autowired
 	    private KafkaTemplate<String, Proposal> kafkaTemplate;
 
-	    User user = new User("pruebaUser", "asdf", "prueba", "pruebez","calle de la prueba",
+	    private User user = new User("pruebaUser", "asdf", "prueba", "pruebez","calle de la prueba",
 				"pruebaLandia", "pruebapruebaprueba", null, "male");
 	    
 	    

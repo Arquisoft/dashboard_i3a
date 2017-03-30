@@ -29,7 +29,7 @@ public class MainController {
     private List<SseEmitter> sseEmitters = Collections.synchronizedList(new ArrayList<>());
     
     @Autowired
-    Dashboard dashboard;
+    private Dashboard dashboard;
     
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
@@ -40,7 +40,7 @@ public class MainController {
 
     @RequestMapping("/dashboard")
     public ModelAndView dashboard(@ModelAttribute("user") UserLogin userLogin, HttpServletRequest request, HttpServletResponse response) {
-    	User user = dashboard.GetParticipant(userLogin.getLogin(), userLogin.getPassword());
+    	User user = dashboard.getParticipant(userLogin.getLogin(), userLogin.getPassword());
     	dashboard.listAll();
 
     	ModelAndView model = null;

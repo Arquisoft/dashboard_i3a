@@ -22,7 +22,7 @@ import es.uniovi.asw.serializers.ProposalDeserializer;
 public class KafkaProposalListenerFactory {
 
 	@Bean
-    KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, Proposal>> kafkaListenerContainerFactory() {
+    protected KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, Proposal>> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<Integer, Proposal> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());

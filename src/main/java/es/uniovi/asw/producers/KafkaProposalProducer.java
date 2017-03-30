@@ -1,7 +1,6 @@
 package es.uniovi.asw.producers;
 
 import java.util.concurrent.ThreadLocalRandom;
-
 import javax.annotation.ManagedBean;
 
 import org.apache.kafka.clients.producer.KafkaProducer;

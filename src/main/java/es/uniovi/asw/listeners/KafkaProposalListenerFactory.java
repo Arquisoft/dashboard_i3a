@@ -1,5 +1,8 @@
 package es.uniovi.asw.listeners;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -11,19 +14,16 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 
-import java.util.HashMap;
-import java.util.Map;
+import es.uniovi.asw.domain.Proposal;
+import es.uniovi.asw.serializers.ProposalDeserializer;
 
-/**
- * Created by herminio on 26/12/16.
- */
 @Configuration
 @EnableKafka
-public class KafkaListenerFactory {
+public class KafkaProposalListenerFactory {
 
-    @Bean
-    KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<Integer, String> factory =
+	@Bean
+    KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, Proposal>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<Integer, Proposal> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setConcurrency(3);
@@ -32,7 +32,7 @@ public class KafkaListenerFactory {
     }
 
     @Bean
-    public ConsumerFactory<Integer, String> consumerFactory() {
+    public ConsumerFactory<Integer, Proposal> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
@@ -44,9 +44,8 @@ public class KafkaListenerFactory {
         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "100");
         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "15000");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ProposalDeserializer.class);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "es.uniovi");
         return props;
     }
-
 }

@@ -27,20 +27,21 @@ public class User {
 	private String nationality;
 	private String DNI;
 	private Date birthday;
-	
-	@OneToMany(mappedBy = "owner", fetch=FetchType.EAGER)
+	private String gender;
+
+	@OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Proposal> proposals;
-	
-	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<VoteProposal> proposal_votes;
 
 	public User() {
 	}
 
-	public User(String login, String password, String firstname, String lastname, String address,
-			String nationality, String dNI, Date birthday) {
+	public User(String login, String password, String firstname, String lastname, String address, String nationality,
+			String dNI, Date birthday, String gender) {
 		super();
 		this.login = login;
 		this.password = password;
@@ -50,6 +51,7 @@ public class User {
 		this.nationality = nationality;
 		this.DNI = dNI;
 		this.birthday = birthday;
+		this.gender = gender;
 	}
 
 	public Long getId() {
@@ -223,4 +225,41 @@ public class User {
 	public void setVoteProposal(List<VoteProposal> proposal_votes) {
 		this.proposal_votes = proposal_votes;
 	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public List<VoteProposal> getProposal_votes() {
+		return proposal_votes;
+	}
+
+	public void setProposal_votes(List<VoteProposal> proposal_votes) {
+		this.proposal_votes = proposal_votes;
+	}
+
+	public void setProposals(List<Proposal> proposals) {
+		this.proposals = proposals;
+	}
+
 }

@@ -1,5 +1,6 @@
 package es.uniovi.asw.domain;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -20,25 +21,27 @@ public class Proposal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_owner")
+	@JoinColumn(name = "id_owner")
 	private User owner;
-	
+
 	private String title;
 	private String description;
-	
-	@OneToMany(mappedBy = "proposal", fetch=FetchType.EAGER)
+
+	@OneToMany(mappedBy = "proposal", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<VoteProposal> votes;
-	
-	@OneToMany(mappedBy = "proposal", fetch=FetchType.EAGER)
+
+	@OneToMany(mappedBy = "proposal", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Comment> comments;
-		
+
+	private Date creationDate;
+
 	public Proposal() {
 	}
-	
+
 	public Proposal(User owner, String title, String description) {
 		this.owner = owner;
 		this.title = title;
@@ -93,10 +96,17 @@ public class Proposal {
 		this.comments = comments;
 	}
 
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
 	@Override
 	public String toString() {
-		return "Proposal [id=" + id + ", owner=" + owner + ", title=" + title + ", description=" + description
-				+ "]";
+		return "Proposal [id=" + id + ", owner=" + owner + ", title=" + title + ", description=" + description + "]";
 	}
 
 }

@@ -1,17 +1,17 @@
-INSERT INTO Users (login, password, firstName, lastName, address, nationality, DNI, birthday) 
+INSERT INTO Users (login, password, firstName, lastName, address, nationality, DNI, birthday, gender) 
 VALUES
-	('freije@example.com', 'asdf', 'Fernando', 'Freije', 'Calle Adosinda', 'Español', '00000001A', '1990-01-01'),
-	('pablo@example.com', 'asdf', 'Pablo', 'Garcia', 'Calle Asturias', 'Español', '00000002A', '1991-01-01'),
-	('david@example.com', 'asdf', 'David', 'Garcia', 'Calle Azteca', 'Español', '00000003A', '1992-01-01'),
-	('Juan@example.com', 'asdf', 'Juan', 'Torres', 'Calle Federico Garcia Lorca', 'Español', '90500084Y', '1993-01-01'),
-	('Luis@example.com', 'asdf', 'Luis', 'López', 'Calle Adosinda', 'Español', '19160962F', '1994-01-01');
+	('freije@example.com', 'asdf', 'Fernando', 'Freije', 'Calle Adosinda', 'Español', '00000001A', '1990-01-01', 'male'),
+	('pablo@example.com', 'asdf', 'Pablo', 'Garcia', 'Calle Asturias', 'Español', '00000002A', '1991-01-01', 'male'),
+	('david@example.com', 'asdf', 'David', 'Garcia', 'Calle Azteca', 'Español', '00000003A', '1992-01-01', 'male'),
+	('Juana@example.com', 'asdf', 'Juana', 'Torres', 'Calle Federico Garcia Lorca', 'Español', '90500084Y', '1993-01-01', 'female'),
+	('Luis@example.com', 'asdf', 'Luis', 'López', 'Calle Adosinda', 'Español', '19160962F', '1994-01-01', 'female');
 	
 
-INSERT INTO Proposals (id_owner, title, description) 
+INSERT INTO Proposals (id_owner, title, description, creationDate) 
 VALUES
-	(1, 'Justice for everyone', 'This is a mock description'),
-	(2, 'Peace in the world', 'This is a mock description'),
-	(3, 'Free videogames', 'This is a mock description');
+	(1, 'Justice for everyone', 'This is a mock description', '2017-03-20'),
+	(2, 'Peace in the world', 'This is a mock description','2017-03-21'),
+	(3, 'Free videogames', 'This is a mock description','2017-03-22');
 
 INSERT INTO Votesproposals (id_proposal, id_user, value)
 VALUES
@@ -19,11 +19,11 @@ VALUES
 	(2, 2, true),
 	(3, 3, true);
 	
-INSERT INTO Comments (id_proposal, id_commentparent, title, text) 
+INSERT INTO Comments (id_proposal, id_commentparent, title, text, creationDate) 
 VALUES
-	(1, null, 'Comment 1', 'This is a mock comment 1'),
-	(1, 1, 'Comment 2', 'This is a mock comment of comment 1'),
-	(2, 1, 'Comment 3', 'This is another mock comment');
+	(1, null, 'Comment 1', 'This is a mock comment 1','2017-03-30'),
+	(1, 1, 'Comment 2', 'This is a mock comment of comment 1','2017-03-30'),
+	(2, 1, 'Comment 3', 'This is another mock comment','2017-03-30');
 
 INSERT INTO Votescomments (id_comment, id_user, value)
 VALUES

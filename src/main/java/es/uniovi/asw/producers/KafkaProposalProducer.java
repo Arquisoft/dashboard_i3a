@@ -23,7 +23,7 @@ public class KafkaProposalProducer {
 	    private KafkaTemplate<String, Proposal> kafkaTemplate;
 
 	    User user = new User("pruebaUser", "asdf", "prueba", "pruebez","calle de la prueba",
-				"pruebaLandia", "pruebapruebaprueba", null);
+				"pruebaLandia", "pruebapruebaprueba", null, "male");
 	    
 	    
 	    @Scheduled(cron = "*/5 * * * * *")

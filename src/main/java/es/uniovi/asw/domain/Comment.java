@@ -1,5 +1,6 @@
 package es.uniovi.asw.domain;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,13 +34,15 @@ public class Comment {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<VoteComment> votes;
 
-	@ManyToOne(cascade={CascadeType.ALL})
-	@JoinColumn(name="id_commentparent")
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id_commentparent")
 	private Comment commentParent;
 
-	@OneToMany(mappedBy="commentParent")
+	@OneToMany(mappedBy = "commentParent")
 	private List<Comment> commentChilds;
-	
+
+	private Date creationDate;
+
 	public Comment() {
 	}
 
@@ -106,9 +109,19 @@ public class Comment {
 		this.commentChilds = commentChilds;
 	}
 
+	
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", proposal=" + proposal + ", title=" + title + ", text=" + text + ", commentParent=" + commentParent + "]";
+		return "Comment [id=" + id + ", proposal=" + proposal + ", title=" + title + ", text=" + text
+				+ ", commentParent=" + commentParent + "]";
 	}
 
 }

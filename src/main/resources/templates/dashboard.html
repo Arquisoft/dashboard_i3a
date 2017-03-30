@@ -1,10 +1,39 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Hola</title>
+<title>Dashboard</title>
+<script>
+  function beginrefresh() {
+    setInterval("refresh()", 5000)
+  }
+  function refresh() {
+    method = "post";
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    var hiddenField = document.createElement("input");
+    hiddenField.setAttribute("name", "refresh");
+    form.appendChild(hiddenField);
+
+    form.submit();
+  }
+  window.onload = beginrefresh;
+</script>
 </head>
 <body>
-<h1>Welcome <span th:text="${userDto.firstname}"></span></h1>
-<h2>Receiving messages for you:</h2>
-<div id="messages"></div>
+	<h1>
+		Welcome <span th:text="${userDto.firstname}"></span>
+	</h1>
+	<h2>Receiving messages for you:</h2>
+	<div id="messages">
+		<table>
+			<tr th:each="proposal,i:${proposals}">
+				<td th:text="${proposal}"></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

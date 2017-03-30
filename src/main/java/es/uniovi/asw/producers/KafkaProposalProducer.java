@@ -1,8 +1,5 @@
 package es.uniovi.asw.producers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.ManagedBean;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -14,10 +11,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
-import es.uniovi.asw.domain.Comment;
 import es.uniovi.asw.domain.Proposal;
-import es.uniovi.asw.domain.User;
-import es.uniovi.asw.domain.VoteProposal;
 import es.uniovi.asw.repository.ProposalRepository;
 
 @ManagedBean

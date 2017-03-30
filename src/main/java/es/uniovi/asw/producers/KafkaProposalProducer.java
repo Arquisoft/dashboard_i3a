@@ -1,5 +1,6 @@
 package es.uniovi.asw.producers;
 
+import java.util.concurrent.ThreadLocalRandom;
 import javax.annotation.ManagedBean;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -29,19 +30,24 @@ public class KafkaProposalProducer {
 	    @Scheduled(cron = "*/5 * * * * *")
 	    public void send() {
 	    	
-	    	Proposal proposal1 = proposalRepository.findById((long) 1);
+	    	Proposal proposal = proposalGenerator();
 	    	
-	        ListenableFuture<SendResult<String, Proposal>> future = kafkaTemplate.send("exampleTopic", proposal1);
+	        ListenableFuture<SendResult<String, Proposal>> future = kafkaTemplate.send("exampleTopic", proposal);
 	        future.addCallback(new ListenableFutureCallback<SendResult<String, Proposal>>() {
 	            @Override
 	            public void onSuccess(SendResult<String, Proposal> result) {
-	                logger.info("Success on sending proposal object \"" + proposal1 + "\"");
+	                logger.info("Success on sending proposal object \"" + proposal + "\"");
 	            }
 
 	            @Override
 	            public void onFailure(Throwable ex) {
-	                logger.error("Error on sending message \"" + proposal1   + "\", stacktrace " + ex.getMessage());
+	                logger.error("Error on sending message \"" + proposal   + "\", stacktrace " + ex.getMessage());
 	            }
 	        });
+	    }
+	    
+	    public Proposal proposalGenerator(){
+	    	int pos = ThreadLocalRandom.current().nextInt(proposalRepository.findAll().size());
+	    	return proposalRepository.findAll().get(pos);
 	    }
 }

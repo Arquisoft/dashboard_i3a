@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import es.uniovi.asw.domain.User;
 import es.uniovi.asw.dto.UserDto;
 import es.uniovi.asw.dto.UserLogin;
-import es.uniovi.asw.listeners.ProposalListener;
+import es.uniovi.asw.listeners.ProposalManager;
 import es.uniovi.asw.services.Dashboard;
 
 @Controller
@@ -56,7 +56,7 @@ public class MainController {
 			UserDto userDto = UserDto.transform(user);
 			model = new ModelAndView("dashboard");
 			model.addObject("userDto", userDto);
-			model.addObject("proposals",ProposalListener.getProposals());
+			model.addObject("proposals",ProposalManager.getProposals());
 		}
 		return model;
     }

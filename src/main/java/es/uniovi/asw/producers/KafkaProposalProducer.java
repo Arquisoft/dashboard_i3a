@@ -1,7 +1,6 @@
 package es.uniovi.asw.producers;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.annotation.ManagedBean;
 
@@ -14,10 +13,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
-import es.uniovi.asw.domain.Comment;
 import es.uniovi.asw.domain.Proposal;
-import es.uniovi.asw.domain.User;
-import es.uniovi.asw.domain.VoteProposal;
 import es.uniovi.asw.repository.ProposalRepository;
 
 @ManagedBean
@@ -35,19 +31,24 @@ public class KafkaProposalProducer {
 	    @Scheduled(cron = "*/5 * * * * *")
 	    public void send() {
 	    	
-	    	Proposal proposal1 = proposalRepository.findById((long) 1);
+	    	Proposal proposal = proposalGenerator();
 	    	
-	        ListenableFuture<SendResult<String, Proposal>> future = kafkaTemplate.send("exampleTopic", proposal1);
+	        ListenableFuture<SendResult<String, Proposal>> future = kafkaTemplate.send("exampleTopic", proposal);
 	        future.addCallback(new ListenableFutureCallback<SendResult<String, Proposal>>() {
 	            @Override
 	            public void onSuccess(SendResult<String, Proposal> result) {
-	                logger.info("Success on sending proposal object \"" + proposal1 + "\"");
+	                logger.info("Success on sending proposal object \"" + proposal + "\"");
 	            }
 
 	            @Override
 	            public void onFailure(Throwable ex) {
-	                logger.error("Error on sending message \"" + proposal1   + "\", stacktrace " + ex.getMessage());
+	                logger.error("Error on sending message \"" + proposal   + "\", stacktrace " + ex.getMessage());
 	            }
 	        });
+	    }
+	    
+	    public Proposal proposalGenerator(){
+	    	int pos = ThreadLocalRandom.current().nextInt(proposalRepository.findAll().size());
+	    	return proposalRepository.findAll().get(pos);
 	    }
 }

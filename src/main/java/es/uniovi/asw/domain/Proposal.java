@@ -30,13 +30,16 @@ public class Proposal {
 	
 	@OneToMany(mappedBy = "proposal", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Vote> votes;
+	private List<VoteProposal> votes;
+	
+	@OneToMany(mappedBy = "proposal", fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Comment> comments;
 		
 	public Proposal() {
 	}
 	
 	public Proposal(User owner, String title, String description) {
-		super();
 		this.owner = owner;
 		this.title = title;
 		this.description = description;
@@ -74,18 +77,26 @@ public class Proposal {
 		this.description = description;
 	}
 
-	public List<Vote> getVotes() {
+	public List<VoteProposal> getVotes() {
 		return votes;
 	}
 
-	public void setVotes(List<Vote> votes) {
+	public void setVotes(List<VoteProposal> votes) {
 		this.votes = votes;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	@Override
 	public String toString() {
 		return "Proposal [id=" + id + ", owner=" + owner + ", title=" + title + ", description=" + description
-				+ ", votes=" + votes + "]";
+				+ "]";
 	}
 
 }

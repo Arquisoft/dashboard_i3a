@@ -41,7 +41,9 @@ public class MainController {
     @RequestMapping("/dashboard")
     public ModelAndView dashboard(@ModelAttribute("user") UserLogin userLogin, HttpServletRequest request, HttpServletResponse response) {
     	User user = dashboard.GetParticipant(userLogin.getLogin(), userLogin.getPassword());
-		ModelAndView model = null;
+    	dashboard.listAll();
+
+    	ModelAndView model = null;
 
 		//If the user is not in the db, we throw an error
 		if (user == null) {

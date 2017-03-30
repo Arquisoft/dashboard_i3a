@@ -1,21 +1,14 @@
 package es.uniovi.asw.domain;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
-@Entity(name = "Votes")
-public class Vote {
+@Entity(name = "Votesproposals")
+public class VoteProposal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,17 +22,12 @@ public class Vote {
 	@JoinColumn(name="id_user")
 	private User user;
 	
-	@OneToMany(mappedBy = "vote" , fetch=FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Comment> comments;
-
-	private boolean value; 
-	
-	public Vote() {
+	private boolean value;
+		
+	public VoteProposal() {
 	}
 
-	public Vote(Proposal proposal, User user, boolean value) {
-		super();
+	public VoteProposal(Proposal proposal, User user, boolean value) {
 		this.proposal = proposal;
 		this.user = user;
 		this.value = value;
@@ -53,25 +41,26 @@ public class Vote {
 		this.user = user;
 	}
 
-	public List<Comment> getComments() {
-		return comments;
+	public Proposal getProposal() {
+		return proposal;
 	}
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
+	public void setProposal(Proposal proposal) {
+		this.proposal = proposal;
 	}
-
-	@Override
-	public String toString() {
-		return "Vote [user=" + user + ", comments=" + comments + "]";
-	}
-
+	
 	public boolean isValue() {
 		return value;
 	}
 
 	public void setValue(boolean value) {
 		this.value = value;
+	}
+
+	@Override
+	public String toString() {
+		return "VoteProposal [id=" + id + ", proposal=" + proposal + ", user=" + user + ", value=" + value
+				+ "]";
 	}
 
 }

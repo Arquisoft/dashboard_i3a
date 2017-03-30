@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.apache.zookeeper.server.quorum.Vote;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -34,7 +35,7 @@ public class User {
 	
 	@OneToMany(mappedBy = "user", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Vote> votes;
+	private List<VoteProposal> proposal_votes;
 
 	public User() {
 	}
@@ -216,11 +217,11 @@ public class User {
 		this.proposals = proposals;
 	}
 
-	public List<Vote> getVotes() {
-		return votes;
+	public List<VoteProposal> getVoteProposal() {
+		return proposal_votes;
 	}
 
-	public void setVote(List<Vote> votes) {
-		this.votes = votes;
+	public void setVoteProposal(List<VoteProposal> proposal_votes) {
+		this.proposal_votes = proposal_votes;
 	}
 }

@@ -207,11 +207,13 @@ public class User {
 		return true;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", login=" + login + ", password=" + password + ", firstName=" + firstname
-				+ ", lastName=" + lastname + ", address=" + address + ", nationality=" + nationality + ", DNI=" + DNI
-				+ ", birthday=" + birthday + "]";
+		return "User [id=" + id + ", login=" + login + ", password=" + password + ", firstname=" + firstname
+				+ ", lastname=" + lastname + ", address=" + address + ", nationality=" + nationality + ", DNI=" + DNI
+				+ ", birthday=" + birthday + ", gender=" + gender + "]";
 	}
 
 	public List<Proposal> getProposals() {

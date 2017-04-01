@@ -1,24 +1,75 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<title>Dashboard</title>
-<script>
-  function beginrefresh() {
-    setInterval("location.reload();", 5000)
-  }
-  window.onload = beginrefresh;
-</script>
+    <meta charset="UTF-8" />
+    <title>dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="charts.js"></script>
+    <script>
+    function beginrefresh() {
+        setInterval("location.reload();", 5000)
+    }
+    window.onload = beginrefresh;
+    </script>
 </head>
-<body>
-	<h1>
-		Welcome <span th:text="${userDto.firstname}"></span>
-	</h1>
-	<h2>Receiving messages for you:</h2>
-	<div id="messages">
-		<table>
-			<tr th:each="proposal,i:${proposals}">
-				<td th:text="${proposal}"></td>
-			</tr>
-		</table>
-	</div>
+
+<body class="home">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <!--left navBar-->
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                <div class="navi">
+                    <ul>
+                        <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
+                        <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- This part is the time line-->
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
+                <div class="row">
+                    <header>
+                        <nav class="navbar-default pull-right">
+                            <h3>Welcome <span th:text="${userDto.firstname}"></span></h3>
+                        </nav>
+                    </header>
+                </div>
+                <div class="user-dashboard">
+                    <br></br>
+                    <div>
+                        <div id="graficaVisitas2013_div" style="width: 300px; height: 150px;"></div>
+                        <div>
+                            <h1>PROPOSALS</h1>
+                        </div>
+                        <div class="row">
+                            <div class="media">
+                                <p class="pull-right"><small>AQUI LA FECHA DE CADA PROPUESTA</small></p>
+                                <a class="media-left" href="#">
+                                    <img src="u.jpg" />
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading user_name">USUARIO QUE LA HA HECHO</h4>PROPUESTA
+                                    <p>NUMERO DE LIKES Y DISLIKES</p>
+                                </div>
+                            </div>
+                        </div>
+                        <table>
+                            <tr th:each="proposal,i:${proposals}">
+                                <td th:text="${proposal}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
+
 </html>

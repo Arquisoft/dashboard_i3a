@@ -3,6 +3,7 @@ package es.uniovi.asw.logicInfo;
 import java.util.List;
 
 import es.uniovi.asw.domain.Vote;
+import es.uniovi.asw.domain.VoteProposal;
 
 public class VotesInfoGenero extends VotesInformation {
 
@@ -15,9 +16,13 @@ public class VotesInfoGenero extends VotesInformation {
 	private int maleNumberNo;
 	private int femaleNumberNo;
 
-	public VotesInfoGenero(List<Vote> votes) {
-		super(votes);
+	public VotesInfoGenero() {
+	}
+	
+	public VotesInfoGenero init(List<VoteProposal> votes){
+		super.init(votes);
 		setMoreInfo();
+		return this;
 	}
 
 	public double getMalePerYes() {
@@ -67,7 +72,7 @@ public class VotesInfoGenero extends VotesInformation {
 	}
 
 	private void setNumberOfVotes() {
-		List<Vote> aux = getVotes();
+		List<VoteProposal> aux = getVotes();
 		for (Vote each : aux) {
 			if (each.getUser().getGender().equals("male")) {
 				if (each.isValue()) {

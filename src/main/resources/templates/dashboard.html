@@ -71,10 +71,10 @@
 											</a>
 											<div class="media-body">
 												<h4 class="media-heading user_name"></h4>
-												<p th:text="${proposal.owner.firstName}"></p>
-												<p th:text="${proposal.owner.lastName}"></p>
+												<p th:text="${proposal.proposal.owner.firstName}"></p>
+												<p th:text="${proposal.proposal.owner.lastName}"></p>
 												<div th:if="${not #lists.isEmpty(tblUserList)}">
-													<div th:each="proposal.comments ,i:${comment}">
+													<div th:each="proposal.proposal.comments ,i:${comment}">
 														<p th:text="${comment}"></p>
 													</div>
 												</div>
@@ -83,8 +83,10 @@
 										</div>
 									</td>
 									<td>
-										<div id="Sarah_chart_div"
-											style="width: 100px; height: 50px; border: 1px solid #ccc"></div>
+										<p th:text="${proposal.votesInformation.total}"></p>
+										<p th:text="${proposal.votesInformation.totalYes}"></p>
+										<p th:text="${proposal.votesInformation.totalNo}"></p>
+										
 									</td>
 									<td>
 										<div id="Anthony_chart_div"

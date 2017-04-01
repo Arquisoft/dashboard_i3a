@@ -3,11 +3,11 @@ package es.uniovi.asw;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 @ComponentScan("es.uniovi.asw")
-@Component
 public class Application {
 
 	

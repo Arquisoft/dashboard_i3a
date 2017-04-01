@@ -2,21 +2,34 @@ package es.uniovi.asw.logicInfo;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import es.uniovi.asw.domain.Vote;
+import es.uniovi.asw.domain.VoteProposal;
+import es.uniovi.asw.repository.ProposalRepository;
 
 public class VotesInformation {
 
-	private List<Vote> votes;
+	private List<VoteProposal> votes;
 	private int total;
 	private int totalYes;
 	private int totalNo;
 	private double perYes;
 	private double perNo;
+	
+	@Autowired
+	ProposalRepository proposalRepository;
 
-	public VotesInformation(List<Vote> votes) {
+	public VotesInformation() {
+		
+	}
+	
+	public VotesInformation init(List<VoteProposal> votes){
 		this.votes = votes;
 		this.total = votes.size();
 		setInfoVotes();
+		return this;
 	}
 
 	private void setInfoVotes() {
@@ -35,7 +48,7 @@ public class VotesInformation {
 
 	}
 
-	public List<Vote> getVotes() {
+	public List<VoteProposal> getVotes() {
 		return votes;
 	}
 

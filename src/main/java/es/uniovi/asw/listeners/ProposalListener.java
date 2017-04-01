@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.kafka.annotation.KafkaListener;
 
 import es.uniovi.asw.domain.Proposal;
+import es.uniovi.asw.dto.ProposalDto;
 
 @ManagedBean
 public class ProposalListener {
@@ -16,7 +17,8 @@ public class ProposalListener {
     @KafkaListener(topics = "exampleTopic")
     public void listen(Proposal proposal) {
         logger.info("New proposal received: \"" + proposal + "\"");
-        ProposalManager.add(proposal);
+        ProposalDto proposalDto = new ProposalDto (proposal);
+        ProposalManager.add(proposalDto);
     }
     
 

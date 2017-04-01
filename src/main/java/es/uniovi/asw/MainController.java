@@ -16,12 +16,14 @@ import es.uniovi.asw.dto.UserDto;
 import es.uniovi.asw.dto.UserLogin;
 import es.uniovi.asw.listeners.ProposalManager;
 import es.uniovi.asw.services.Dashboard;
+import es.uniovi.asw.services.InformationService;
 
 @Controller
 public class MainController {
     
     @Autowired
     Dashboard dashboard;
+    
     
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
@@ -34,6 +36,7 @@ public class MainController {
     public ModelAndView dashboard(@ModelAttribute("user") UserLogin userLogin, HttpServletRequest request, HttpServletResponse response) {
     	User user = dashboard.GetParticipant(userLogin.getLogin(), userLogin.getPassword());
     	dashboard.listAll();
+
 
     	ModelAndView model = null;
 

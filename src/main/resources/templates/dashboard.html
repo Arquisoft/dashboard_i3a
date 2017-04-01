@@ -11,7 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="charts.js"></script>
+<script src="pieChart.js"></script>
+<script src="barChart.js"></script>
 <script>
 	function beginrefresh() {
 		setInterval("location.reload();", 5000)
@@ -40,24 +41,8 @@
 	</nav>
 	<div class="container-fluid display-table">
 		<div class="row display-table-row">
-			<!--left navBar-->
-			<div
-				class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box"
-				id="navigation">
-				<div class="navi">
-					<ul>
-						<li class="active"><a href="#"><i class="fa fa-home"
-								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-						<li><a href="#"><i class="fa fa-bar-chart"
-								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
-						<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span
-								class="hidden-xs hidden-sm">Setting</span></a></li>
-					</ul>
-				</div>
-			</div>
-
 			<!-- This part is the time line-->
-			<div class="col-md-10 col-sm-11 display-table-cell v-align">
+			<div class="col-sm-11 display-table-cell v-align">
 				<!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
 				<div class="user-dashboard">
 					<br></br>
@@ -66,10 +51,7 @@
 							<table class="columns">
 								<tr>
 									<td>
-										<div id="Sarah_chart_div" style="border: 1px solid #ccc"></div>
-									</td>
-									<td>
-										<div id="Anthony_chart_div" style="border: 1px solid #ccc"></div>
+										<div id="columnchart_values" style="border: 1px solid #ccc"></div>
 									</td>
 								</tr>
 							</table>
@@ -80,18 +62,34 @@
 						<div class="row">
 							<table>
 								<tr th:each="proposal,i:${proposals}">
-									<div class="media">
-										<p class="pull-right">
-											<small>AQUI LA FECHA DE CADA PROPUESTA</small>
-										</p>
-										<a class="media-left" href="#"> <img src="u.jpg" />
-										</a>
-										<div class="media-body">
-											<h4 class="media-heading user_name"></h4>
-											<p th:text="${proposal.owner.firstName}"></p>
-											<p>NUMERO DE LIKES Y DISLIKES</p>
+									<td>
+										<div class="media">
+											<p class="pull-right">
+												<small>AQUI LA FECHA DE CADA PROPUESTA</small>
+											</p>
+											<a class="media-left" href="#"> <img src="u.jpg" />
+											</a>
+											<div class="media-body">
+												<h4 class="media-heading user_name"></h4>
+												<p th:text="${proposal.owner.firstName}"></p>
+												<p th:text="${proposal.owner.lastName}"></p>
+												<div th:if="${not #lists.isEmpty(tblUserList)}">
+													<div th:each="proposal.comments ,i:${comment}">
+														<p th:text="${comment}"></p>
+													</div>
+												</div>
+												<p>NUMERO DE LIKES Y DISLIKES</p>
+											</div>
 										</div>
-									</div>
+									</td>
+									<td>
+										<div id="Sarah_chart_div"
+											style="width: 100px; height: 50px; border: 1px solid #ccc"></div>
+									</td>
+									<td>
+										<div id="Anthony_chart_div"
+											style="width: 100px; height: 50px; border: 1px solid #ccc"></div>
+									</td>
 								</tr>
 							</table>
 						</div>

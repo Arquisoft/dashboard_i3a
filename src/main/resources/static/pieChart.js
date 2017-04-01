@@ -10,7 +10,7 @@ google.charts.setOnLoadCallback(drawAnthonyChart);
 // Callback that draws the pie chart for Sarah's pizza.
 function drawSarahChart() {
 
-    // Create the data table for Sarah's pizza.
+	// Create the data table for Sarah's pizza.
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Topping');
     data.addColumn('number', 'Slices');

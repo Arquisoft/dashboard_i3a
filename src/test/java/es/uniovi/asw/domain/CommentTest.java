@@ -33,11 +33,7 @@ public class CommentTest {
 
 		assertTrue(comment.getProposal().equals(proposal));
 		assertTrue(comment.getTitle().equals("Test"));
-		assertTrue(comment.getTitle().equals("Test"));
-		
-		comment.getVotes().stream().filter(v->!v.isValue()).collect(Collectors.toList()).size();
-
-		
+		assertTrue(comment.getTitle().equals("Test"));	
 	}
 
 }

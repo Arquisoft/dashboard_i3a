@@ -20,6 +20,4 @@ public class ProposalListener {
         ProposalDto proposalDto = new ProposalDto (proposal);
         ProposalManager.add(proposalDto);
     }
-    
-
 }

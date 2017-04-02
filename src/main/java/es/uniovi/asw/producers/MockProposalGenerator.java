@@ -42,6 +42,7 @@ public class MockProposalGenerator {
 			proposal.setTitle("Propuesta de prueba generada");
 			proposal.setDescription("Descripcion de proposal de prueba generada");
 			proposal.setOwner(user);
+			user.getProposals().add(proposal);
 			break;
 		case 1:
 			proposal =  proposalRepository.findAll().get(posProposal);
@@ -49,16 +50,21 @@ public class MockProposalGenerator {
 			comment.setTitle("TestComment");
 			comment.setText("TestCommentText");
 			comment.setUser(user);
-			comment = commentRepository.save(comment);
+			user.getComments().add(comment);
 			proposal.addComment(comment); 
+			comment.setProposal(proposal);
+			comment = commentRepository.save(comment);
 			break;
 		default:
 			proposal =  proposalRepository.findAll().get(posProposal);
 			VoteProposal vote = new VoteProposal();
 			vote.setValue(rVote==0);
 			vote.setUser(user);
-			vote = voteRepository.save(vote);
+			user.getVoteProposal().add(vote);
 			proposal.addVote(vote); 
+			vote.setProposal(proposal);
+			vote = voteRepository.save(vote);
+			
 			break;
 		}
 		

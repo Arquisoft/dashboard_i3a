@@ -8,7 +8,6 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@ContextConfiguration(classes=Application.class, loader=SpringApplicationContextLoader.class)
 @CucumberOptions(features = "src/test/resources/features")
 public class CucumberTest{
 }

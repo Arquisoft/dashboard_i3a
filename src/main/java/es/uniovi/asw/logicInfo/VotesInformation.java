@@ -5,10 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import es.uniovi.asw.domain.Vote;
-import es.uniovi.asw.domain.VoteProposal;
 import es.uniovi.asw.repository.ProposalRepository;
 
-public abstract class VotesInformation {
+public class VotesInformation {
 
 	private List<Vote> votes;
 	private int total;

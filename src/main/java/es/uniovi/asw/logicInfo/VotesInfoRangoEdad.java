@@ -5,7 +5,7 @@ import java.util.List;
 import es.uniovi.asw.domain.Vote;
 import es.uniovi.asw.util.AgeCalculator;
 
-public abstract class VotesInfoRangoEdad extends VotesInformation {
+public class VotesInfoRangoEdad extends VotesInformation {
 
 	/**
 	 * Young = 18-30 Adult = 30-55 Old = 55 ->>

@@ -1,6 +1,7 @@
 package es.uniovi.asw.dto;
 
 import es.uniovi.asw.domain.Comment;
+import es.uniovi.asw.logicInfo.IntermedioComments;
 import es.uniovi.asw.logicInfo.VotesInfoGenero;
 import es.uniovi.asw.logicInfo.VotesInfoRangoEdad;
 import es.uniovi.asw.logicInfo.VotesInformation;
@@ -14,9 +15,10 @@ public class CommentDto {
 	
 	public CommentDto (Comment comment){
 		setComment(comment);
-		setVotesInformation(new VotesInformation(comment.getVotes()));
-		setVotesInfoRangoEdad(new VotesInfoRangoEdad(comment.getVotes()));
-		setVotesInfoGenero(new VotesInfoGenero(comment.getVotes()));
+		IntermedioComments aux = new IntermedioComments(comment.getVotes());
+		setVotesInformation(aux.getVotesInformation());
+		setVotesInfoRangoEdad(aux.getVotesInfoRangoEdad());
+		setVotesInfoGenero(aux.getVotesInfoGenero());
 	}
 
 	public Comment getComment() {

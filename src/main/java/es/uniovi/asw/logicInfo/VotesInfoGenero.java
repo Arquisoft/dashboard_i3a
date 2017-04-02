@@ -4,7 +4,7 @@ import java.util.List;
 
 import es.uniovi.asw.domain.Vote;
 
-public abstract class VotesInfoGenero extends VotesInformation {
+public class VotesInfoGenero extends VotesInformation {
 
 	private double malePerYes;
 	private double femalePerYes;

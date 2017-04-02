@@ -32,11 +32,11 @@ public class MockProposalGenerator {
 	public Proposal generate(){
 		int posProposal = ThreadLocalRandom.current().nextInt(proposalRepository.findAll().size());
 		User user = userRepository.findAll().get(ThreadLocalRandom.current().nextInt(userRepository.findAll().size()));
-		int rVote = ThreadLocalRandom.current().nextInt(1);
-		int option = ThreadLocalRandom.current().nextInt(100);
+		int rVote = ThreadLocalRandom.current().nextInt(2);
+		int option = ThreadLocalRandom.current().nextInt(500);
 		Proposal proposal;
 		
-		switch (option%10){
+		switch (option%50){
 		case 0: //
 			proposal = new Proposal();
 			proposal.setTitle("Propuesta de prueba generada");

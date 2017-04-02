@@ -36,7 +36,6 @@ public class MainController {
     	User user = dashboard.GetParticipant(userLogin.getLogin(), userLogin.getPassword());
     	dashboard.listAll();
 
-
     	ModelAndView model = null;
 
 		//If the user is not in the db, we throw an error
@@ -49,6 +48,7 @@ public class MainController {
 			UserDto userDto = UserDto.transform(user);
 			model = new ModelAndView("dashboard");
 			model.addObject("userDto", userDto);
+		
 			model.addObject("proposals",ProposalManager.getProposals());
 		}
 		return model;

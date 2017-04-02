@@ -12,6 +12,10 @@ public class ProposalManager {
 
 	private static final Map<Long,ProposalDto> proposals = new LinkedHashMap<>();
 	
+	
+	public static boolean isEmpty(){
+		return proposals.isEmpty();
+	}
 	public static void add (ProposalDto proposalDto){
 		if (proposals.containsKey(proposalDto.getProposal().getId()))
 			proposals.remove(proposalDto.getProposal().getId());

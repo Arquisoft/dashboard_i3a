@@ -32,6 +32,10 @@ public class Comment {
 
 	private String title;
 	private String text;
+	
+	@ManyToOne
+	@JoinColumn(name="id_user")
+	private User user;
 
 	@OneToMany(mappedBy = "comment", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)

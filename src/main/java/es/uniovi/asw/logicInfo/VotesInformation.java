@@ -3,7 +3,6 @@ package es.uniovi.asw.logicInfo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.domain.Vote;
 import es.uniovi.asw.domain.VoteProposal;

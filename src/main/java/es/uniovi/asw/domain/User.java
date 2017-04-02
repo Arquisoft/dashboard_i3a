@@ -40,6 +40,10 @@ public class User {
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<VoteProposal> proposal_votes;
+	
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Comment> comments;
 
 	public User() {
 	}
@@ -230,6 +234,14 @@ public class User {
 
 	public void setVoteProposal(List<VoteProposal> proposal_votes) {
 		this.proposal_votes = proposal_votes;
+	}
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	public String getGender() {

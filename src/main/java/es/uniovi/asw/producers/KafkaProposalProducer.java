@@ -1,6 +1,5 @@
 package es.uniovi.asw.producers;
 
-import java.util.concurrent.ThreadLocalRandom;
 import javax.annotation.ManagedBean;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -13,7 +12,6 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import es.uniovi.asw.domain.Proposal;
-import es.uniovi.asw.repository.ProposalRepository;
 
 @ManagedBean
 public class KafkaProposalProducer {
@@ -21,16 +19,15 @@ public class KafkaProposalProducer {
 	 private static final Logger logger = Logger.getLogger(KafkaProducer.class);
 
 	    @Autowired
-	    private KafkaTemplate<String, Proposal> kafkaTemplate;
-
-	    @Autowired
-	    private ProposalRepository proposalRepository;
+	    private KafkaTemplate<String, Proposal> kafkaTemplate;	 
 	    
+	    @Autowired
+	    private MockProposalGenerator generator;
 	    
 	    @Scheduled(cron = "*/5 * * * * *")
 	    public void send() {
 	    	
-	    	Proposal proposal = proposalGenerator();
+	    	Proposal proposal = generator.generate();
 	    	
 	        ListenableFuture<SendResult<String, Proposal>> future = kafkaTemplate.send("exampleTopic", proposal);
 	        future.addCallback(new ListenableFutureCallback<SendResult<String, Proposal>>() {
@@ -46,8 +43,4 @@ public class KafkaProposalProducer {
 	        });
 	    }
 	    
-	    public Proposal proposalGenerator(){
-	    	int pos = ThreadLocalRandom.current().nextInt(proposalRepository.findAll().size());
-	    	return proposalRepository.findAll().get(pos);
-	    }
 }

@@ -6,5 +6,5 @@ Scenario: Login
       | pablo@example.com    | asdf   |
       | david@example.com    | asdf   |
       | freije@example.com   | asdf   |
-    When I login with correct name and password
+    When I login with correct pablo@example.com and asdf
     Then I can enter the dashboard

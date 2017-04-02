@@ -6,9 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,18 +47,29 @@ public class LoginSteps {
 	@When("^I login with correct \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void i_login_with_name_and_password(String name, String password) throws Throwable {
 		LOG.debug("Login with values..." + name + " - " + password);
-
-		driver.findElement(By.xpath("//*[@id=\"inputField\"]")).sendKeys(name);
-		driver.findElement(By.id("inputPassword")).sendKeys(password);
-		driver.findElement(By.name("buttonlogin")).click();
+		driver.get(baseUrl + "/");
+		driver.findElement(By.xpath("//*[@id='inputField']")).sendKeys(name);
+		driver.findElement(By.xpath("//*[@id='inputPassword']")).sendKeys(password);
+		driver.findElement(By.xpath("//*[@id='buttonLogin']")).click();
 	}
 
-	@Then("^I receive a welcome message$")
-	public void i_receive_a_welcome_message(String welcome) throws Throwable {
-		LOG.debug("Welcome value received");
-		String currentURL = driver.getCurrentUrl();
-		assertEquals(currentURL, "http://localhost:8080/dashboard_i3a/dashboard");
-		assertEquals(welcome, "Welcome: Pablo");
+	@Then("^I receive a welcome message \"([^\"]*)\"$")
+	public void i_receive_a_welcome_message(String welcome) throws Throwable {	
+		List<WebElement>list = driver.findElements(By.xpath("//*[contains(text(),'" + welcome + "')]"));
+		Assert.assertTrue("Text not found!", list.size() > 0);
+		LOG.debug("Receiving welcome message: "+ welcome);
+	}
+
+	@Then("^I can see \"([^\"]*)\"$")
+	public void i_can_see(String text) throws Throwable {
+		List<WebElement>list = driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]"));
+		Assert.assertTrue("Text not found!", list.size() > 0);
+		LOG.debug("Checking text present: "+ text);
+	}
+	
+	@After
+	  public void tearDown() throws Exception {
+	    driver.quit();
 	}
 
 	public static class User {

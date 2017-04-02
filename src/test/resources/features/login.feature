@@ -8,4 +8,5 @@ Scenario: Login
       | david@example.com    | asdf     |
       | freije@example.com   | asdf     |
     When I login with correct "pablo@example.com" and "asdf"
-    Then I receive a welcome message "Welcome: Pablo"
+    Then I receive a welcome message "Welcome:"
+    And I can see "Male Stats:"

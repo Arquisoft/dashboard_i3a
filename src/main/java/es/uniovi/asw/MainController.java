@@ -34,7 +34,7 @@ public class MainController {
     @RequestMapping("/dashboard")
     public ModelAndView dashboard(@ModelAttribute("user") UserLogin userLogin, HttpServletRequest request, HttpServletResponse response) {
     	User user = dashboard.GetParticipant(userLogin.getLogin(), userLogin.getPassword());
-    	dashboard.listAll();
+    	//dashboard.listAll();
 
     	ModelAndView model = null;
 

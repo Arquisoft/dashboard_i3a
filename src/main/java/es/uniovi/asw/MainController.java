@@ -21,7 +21,7 @@ import es.uniovi.asw.services.Dashboard;
 public class MainController {
     
     @Autowired
-    Dashboard dashboard;
+    private Dashboard dashboard;
     
     
 	@RequestMapping(value = "/", method = RequestMethod.GET)

@@ -14,7 +14,7 @@ import es.uniovi.asw.repository.UserRepository;
 public class APIController {
     
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     
     @RequestMapping("/users")
     public List<User> user() {

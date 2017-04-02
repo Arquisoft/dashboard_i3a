@@ -24,7 +24,7 @@ public class VoteProposalTest {
 		
 		assertTrue(voteProposal.getUser().equals(user));
 		assertTrue(voteProposal.getProposal().equals(proposal));
-		assertTrue(voteProposal.isValue() == true);
+		assertTrue(voteProposal.isValue());
 	}
 
 }

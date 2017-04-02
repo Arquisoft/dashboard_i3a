@@ -16,7 +16,7 @@ public class ProposalListener {
 	private static final Logger logger = Logger.getLogger(ProposalListener.class);
 	
 	@Autowired
-	ProposalRepository pr;
+	private ProposalRepository pr;
 
     @KafkaListener(topics = "exampleTopic")
     public void listen(Proposal proposal) {

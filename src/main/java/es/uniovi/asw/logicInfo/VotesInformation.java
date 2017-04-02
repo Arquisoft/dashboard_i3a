@@ -18,7 +18,7 @@ public class VotesInformation {
 	private double perNo;
 	
 	@Autowired
-	ProposalRepository proposalRepository;
+	private ProposalRepository proposalRepository;
 
 	public VotesInformation(List<VoteProposal> votes2) {
 		
@@ -29,7 +29,8 @@ public class VotesInformation {
 
 	private void setInfoVotes() {
 		
-		int y = 0, n = 0;
+		int y = 0;
+		int n = 0;
 		for (Vote each : votes) {
 			if (each.isValue()) {
 				y++;

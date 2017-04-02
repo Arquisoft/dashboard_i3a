@@ -28,7 +28,7 @@ public class VoteCommentTest {
 		
 		assertTrue(voteComment.getUser().equals(user));
 		assertTrue(voteComment.getComment().equals(comment));
-		assertTrue(voteComment.isValue() == true);
+		assertTrue(voteComment.isValue());
 	}
 
 }

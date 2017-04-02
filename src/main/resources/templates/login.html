@@ -16,14 +16,14 @@
                 <div class="form-login">
                     <h1>Login</h1>
                     <form th:action="@{/dashboard}" th:object="${user}" method="post">
-                        <input type="text" class="form-control input-sm chat-input" name="u" th:field="*{login}" placeholder="Username" required="required" />
+                        <input type="text" class="form-control input-sm chat-input" name="u" th:field="*{login}" placeholder="Username" required="required" id="inputField"/>
                         <br/>
-                        <input type="password" class="form-control input-sm chat-input" name="p" th:field="*{password}" placeholder="Password" required="required" />
+                        <input type="password" class="form-control input-sm chat-input" name="p" th:field="*{password}" placeholder="Password" required="required" id="inputPassword" />
                         <br/>
                         <div class="wrapper">
                             <span class="group-btn">  
-								<button type="submit" class="btn btn-primary">Login</button>
-								<button type="reset" class="btn btn-primary" >Reset</button>
+								<button type="submit" class="btn btn-primary" id="buttonLogin">Login</button>
+								<button type="reset" class="btn btn-primary" id="buttonReset" >Reset</button>
 							</span>
                         </div>
                     </form>

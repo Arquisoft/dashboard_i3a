@@ -16,7 +16,6 @@ import es.uniovi.asw.dto.UserDto;
 import es.uniovi.asw.dto.UserLogin;
 import es.uniovi.asw.listeners.ProposalManager;
 import es.uniovi.asw.services.Dashboard;
-import es.uniovi.asw.services.InformationService;
 
 @Controller
 public class MainController {

@@ -5,12 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import es.uniovi.asw.domain.Vote;
-import es.uniovi.asw.domain.VoteProposal;
 import es.uniovi.asw.repository.ProposalRepository;
 
 public class VotesInformation {
 
-	private List<VoteProposal> votes;
+	private List<Vote> votes;
 	private int total;
 	private int totalYes;
 	private int totalNo;
@@ -20,15 +19,11 @@ public class VotesInformation {
 	@Autowired
 	ProposalRepository proposalRepository;
 
-	public VotesInformation() {
+	public VotesInformation(List<Vote> votes) {
 		
-	}
-	
-	public VotesInformation init(List<VoteProposal> votes){
 		this.votes = votes;
 		this.total = votes.size();
 		setInfoVotes();
-		return this;
 	}
 
 	private void setInfoVotes() {
@@ -47,7 +42,7 @@ public class VotesInformation {
 
 	}
 
-	public List<VoteProposal> getVotes() {
+	public List<Vote> getVotes() {
 		return votes;
 	}
 

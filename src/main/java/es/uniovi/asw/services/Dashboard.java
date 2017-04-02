@@ -11,31 +11,10 @@ import es.uniovi.asw.repository.VoteCommentRepository;
 import es.uniovi.asw.repository.VoteProposalRepository;
 
 @Service
-public class Dashboard implements ShowInfo, SendAlarm{
+public class Dashboard{
 	
 	@Autowired
 	UserRepository userRepository;
-	
-	@Autowired
-	VoteCommentRepository voteCommentRepository;
-	
-	@Autowired
-	VoteProposalRepository voteProposalRepository;
-	
-	@Autowired
-	CommentRepository commentRepository;
-	
-	@Autowired
-	ProposalRepository proposalRepository;
-	
-	public void listAll(){
-		System.out.println(userRepository.findAll().stream().map(u -> u.toString()).reduce("", String::concat));
-		System.out.println(proposalRepository.findAll().stream().map(p -> p.toString()).reduce("", String::concat));;
-		System.out.println(voteProposalRepository.findAll().stream().map(v -> v.toString()).reduce("", String::concat));
-		System.out.println(commentRepository.findAll().stream().map(c -> c.toString()).reduce("", String::concat));
-		System.out.println(voteCommentRepository.findAll().stream().map(v -> v.toString()).reduce("", String::concat));;
-		
-	}
 	
 	/**
 	 * Get the info of a participant passing as parameters its credentials

@@ -2,11 +2,8 @@ package es.uniovi.asw.logicInfo;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import es.uniovi.asw.domain.Vote;
 import es.uniovi.asw.domain.VoteProposal;
-import es.uniovi.asw.repository.ProposalRepository;
 
 public class VotesInformation {
 
@@ -16,9 +13,6 @@ public class VotesInformation {
 	private int totalNo;
 	private double perYes;
 	private double perNo;
-	
-	@Autowired
-	private ProposalRepository proposalRepository;
 
 	public VotesInformation(List<VoteProposal> votes2) {
 		
@@ -62,12 +56,12 @@ public class VotesInformation {
 		return totalNo;
 	}
 
-	public double getPerYes() {
-		return perYes;
+	public int getPerYes() {
+		return (int) perYes;
 	}
 
-	public double getPerNo() {
-		return perNo;
+	public int getPerNo() {
+		return (int) perNo;
 	}
 
 	@Override

@@ -21,20 +21,20 @@ public class VotesInfoGenero extends VotesInformation {
 		setMoreInfo();
 	}
 
-	public double getMalePerYes() {
-		return malePerYes;
+	public int getMalePerYes() {
+		return (int) malePerYes;
 	}
 
-	public double getFemalePerYes() {
-		return femalePerYes;
+	public int getFemalePerYes() {
+		return (int) femalePerYes;
 	}
 
-	public double getMalePerNo() {
-		return malePerNo;
+	public int getMalePerNo() {
+		return (int) malePerNo;
 	}
 
-	public double getFemalePerNo() {
-		return femalePerNo;
+	public int getFemalePerNo() {
+		return (int) femalePerNo;
 	}
 
 	public int getMaleNumberYes() {

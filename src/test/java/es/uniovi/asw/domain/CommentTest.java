@@ -1,8 +1,6 @@
 package es.uniovi.asw.domain;
 
-import static org.junit.Assert.*;
-
-import java.util.stream.Collectors;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 

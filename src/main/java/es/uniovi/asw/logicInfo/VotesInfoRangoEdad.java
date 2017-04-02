@@ -54,28 +54,28 @@ public class VotesInfoRangoEdad extends VotesInformation {
 		return oldNumberNo;
 	}
 
-	public double getYoungPerYes() {
-		return youngPerYes;
+	public int getYoungPerYes() {
+		return (int) youngPerYes;
 	}
 
-	public double getOldPerYes() {
-		return oldPerYes;
+	public int getOldPerYes() {
+		return (int) oldPerYes;
 	}
 
-	public double getAdultgPerYes() {
-		return adultgPerYes;
+	public int getAdultgPerYes() {
+		return (int) adultgPerYes;
 	}
 
-	public double getYoungPerNo() {
-		return youngPerNo;
+	public int getYoungPerNo() {
+		return (int) youngPerNo;
 	}
 
-	public double getOldPerNo() {
-		return oldPerNo;
+	public int getOldPerNo() {
+		return (int) oldPerNo;
 	}
 
-	public double getAdultgPerNo() {
-		return adultgPerNo;
+	public int getAdultgPerNo() {
+		return (int) adultgPerNo;
 	}
 
 	public void setMoreInfo() {

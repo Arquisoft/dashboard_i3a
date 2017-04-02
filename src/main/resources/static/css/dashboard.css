@@ -1,3 +1,22 @@
+.knockout {
+	background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg)
+		-80px -80px;
+	color: red;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	font-weight: bold;
+	font-size: 90px;
+	font-family: arial, helvetica;
+	width: 600px;
+	margin: 50px auto;
+	text-align: center;
+}
+
+h4 {
+	font: bold;
+	color: blue;
+}
+
 a:focus, a:hover, a {
 	outline: none;
 	text-decoration: none;
@@ -10,7 +29,7 @@ li, ul {
 }
 
 .home {
-	background: #f6f7fa;
+	background: #A9BCF5;
 }
 
 #navigation {

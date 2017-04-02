@@ -1,4 +1,4 @@
-package es.uniovi.asw.controller;
+package es.uniovi.asw;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

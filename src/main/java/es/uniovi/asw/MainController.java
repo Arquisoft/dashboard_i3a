@@ -1,4 +1,4 @@
-package es.uniovi.asw.controller;
+package es.uniovi.asw;
 
 
 import javax.servlet.http.HttpServletRequest;

@@ -3,10 +3,9 @@ package es.uniovi.asw.logicInfo;
 import java.util.List;
 
 import es.uniovi.asw.domain.Vote;
-import es.uniovi.asw.domain.VoteProposal;
 import es.uniovi.asw.util.AgeCalculator;
 
-public class VotesInfoRangoEdad extends VotesInformation {
+public abstract class VotesInfoRangoEdad extends VotesInformation {
 
 	/**
 	 * Young = 18-30 Adult = 30-55 Old = 55 ->>
@@ -25,13 +24,9 @@ public class VotesInfoRangoEdad extends VotesInformation {
 	private double oldPerNo;
 	private double adultgPerNo;
 
-	public VotesInfoRangoEdad() {
-	}
-	
-	public VotesInfoRangoEdad init(List<VoteProposal> votes){
-		super.init(votes);
+	public VotesInfoRangoEdad(List<Vote> votes) {
+		super(votes);
 		setMoreInfo();
-		return this;
 	}
 
 	public int getYoungNumberYes() {
@@ -88,7 +83,7 @@ public class VotesInfoRangoEdad extends VotesInformation {
 	}
 
 	private void setNumberOfVotes() {
-		List<VoteProposal> aux = getVotes();
+		List<Vote> aux = getVotes();
 		int years;
 		boolean vote;
 		for (Vote each : aux) {

@@ -1,30 +1,30 @@
 package es.uniovi.asw.dto;
 
-import es.uniovi.asw.domain.Proposal;
+import es.uniovi.asw.domain.Comment;
 import es.uniovi.asw.logicInfo.VotesInfoGenero;
 import es.uniovi.asw.logicInfo.VotesInfoRangoEdad;
 import es.uniovi.asw.logicInfo.VotesInformation;
 
-public class ProposalDto {
+public class CommentDto {
 	
-	private Proposal proposal;
+	private Comment comment;
 	private VotesInfoGenero votesInfoGenero;
 	private VotesInfoRangoEdad votesInfoRangoEdad;
 	private VotesInformation votesInformation;
 	
-	public ProposalDto (Proposal proposal){
-		setProposal(proposal);
-		setVotesInformation(new VotesInformation(proposal.getVotes()));
-		setVotesInfoRangoEdad(new VotesInfoRangoEdad(proposal.getVotes()));
-		setVotesInfoGenero(new VotesInfoGenero(proposal.getVotes()));
+	public CommentDto (Comment comment){
+		setComment(comment);
+		setVotesInformation(new VotesInformation(comment.getVotes()));
+		setVotesInfoRangoEdad(new VotesInfoRangoEdad(comment.getVotes()));
+		setVotesInfoGenero(new VotesInfoGenero(comment.getVotes()));
 	}
 
-	public Proposal getProposal() {
-		return proposal;
+	public Comment getComment() {
+		return comment;
 	}
 
-	public void setProposal(Proposal proposal) {
-		this.proposal = proposal;
+	public void setComment(Comment comment) {
+		this.comment = comment;
 	}
 
 	public VotesInfoGenero getVotesInfoGenero() {

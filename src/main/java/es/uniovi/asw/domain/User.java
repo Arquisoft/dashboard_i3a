@@ -32,6 +32,7 @@ public class User {
 	private String DNI;
 	private Date birthday;
 	private String gender;
+	
 
 	@OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)

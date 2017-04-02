@@ -11,15 +11,11 @@ import es.uniovi.asw.domain.Proposal;
 public class ProposalDeserializer implements Deserializer<Proposal> {
 
 	@Override
-	public void close() {
-		// TODO Auto-generated method stub
-		
+	public void close() {		
 	}
 
 	@Override
-	public void configure(Map<String, ?> arg0, boolean arg1) {
-		// TODO Auto-generated method stub
-		
+	public void configure(Map<String, ?> arg0, boolean arg1) {		
 	}
 
 	@Override
@@ -34,8 +30,4 @@ public class ProposalDeserializer implements Deserializer<Proposal> {
 	    }
 	    return proposal;
 	}
-
-	
-
-
 }

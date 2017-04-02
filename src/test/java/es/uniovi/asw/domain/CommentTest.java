@@ -2,6 +2,8 @@ package es.uniovi.asw.domain;
 
 import static org.junit.Assert.*;
 
+import java.util.stream.Collectors;
+
 import org.junit.Test;
 
 import es.uniovi.asw.util.DateConversor;
@@ -27,10 +29,15 @@ public class CommentTest {
 		comment.setVotes(null);
 		comment.setCommentParent(null);
 		comment.setCommentChilds(null);
+		
 
 		assertTrue(comment.getProposal().equals(proposal));
 		assertTrue(comment.getTitle().equals("Test"));
 		assertTrue(comment.getTitle().equals("Test"));
+		
+		comment.getVotes().stream().filter(v->!v.isValue()).collect(Collectors.toList()).size();
+
+		
 	}
 
 }

@@ -15,14 +15,14 @@ public class VotesInformation {
 	private double perNo;
 
 	public VotesInformation(List<VoteProposal> votes2) {
-		
+
 		this.votes = votes2;
 		this.total = votes2.size();
 		setInfoVotes();
 	}
 
 	private void setInfoVotes() {
-		
+
 		int y = 0;
 		int n = 0;
 		for (Vote each : votes) {
@@ -34,9 +34,9 @@ public class VotesInformation {
 		}
 		this.totalYes = y;
 		this.totalNo = n;
-		
-		this.perNo = n>0 ? (n/(double)(y+n)) * 100 : 0;
-		this.perYes = y>0 ? (y/(double)(y+n)) * 100 : 0;
+
+		this.perNo = n > 0 ? (n / (double) (y + n)) * 100 : 0;
+		this.perYes = y > 0 ? (y / (double) (y + n)) * 100 : 0;
 
 	}
 
@@ -69,8 +69,9 @@ public class VotesInformation {
 		return "With a participation of " + getTotal() + " citizens, there are the next results: \n\t Yes: "
 				+ getPerYes() + "%\n\t No:" + getPerNo();
 	}
+
 	public String getInfo() {
-		return "Votes: " + total + " Yes:" + perYes + "% No:" + perNo + "%";
+		return "Votes: " + (int) total + " Yes:" + (int) perYes + "% No:" + (int) perNo + "%";
 	}
 
 }

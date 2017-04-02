@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity(name = "Comments")
-@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "@id")
 public class Comment {
 
 	@Id
@@ -33,22 +33,22 @@ public class Comment {
 
 	private String title;
 	private String text;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_user")
+	@JoinColumn(name = "id_user")
 	private User user;
 
 	@OneToMany(mappedBy = "comment", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<VoteComment> votes;
 
-	@ManyToOne(cascade={CascadeType.ALL})
-	@JoinColumn(name="id_commentparent")
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id_commentparent")
 	private Comment commentParent;
 
-	@OneToMany(mappedBy="commentParent", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "commentParent", fetch = FetchType.EAGER)
 	private List<Comment> commentChilds;
-	
+
 	public Comment() {
 	}
 
@@ -114,34 +114,35 @@ public class Comment {
 	public void setCommentChilds(List<Comment> commentChilds) {
 		this.commentChilds = commentChilds;
 	}
-	
-	public void setUser(User user){
-		this.user=user;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	
-	public User getUser(){
+
+	public User getUser() {
 		return this.user;
 	}
-	
-	public int getTotalVotes(){
-		return votes.size();
-	}
-	
-	public int getPositiveVotes(){
-		return votes.stream().filter(v->v.isValue()).collect(Collectors.toList()).size();
-	}
-	
-	public int getNegativeVotes(){
-		return votes.stream().filter(v->!v.isValue()).collect(Collectors.toList()).size();
-	}
-	
-	public String getInfo() {
-		return "Votes: " + getTotalVotes() + " Yes:" + getPositiveVotes() + "% No:" + getNegativeVotes() + "%";
-	}
+
+//	public int getTotalVotes() {
+//		return votes.size();
+//	}
+//
+//	public int getPositiveVotes() {
+//		return votes.stream().filter(v -> v.isValue()).collect(Collectors.toList()).size();
+//	}
+//
+//	public int getNegativeVotes() {
+//		return votes.stream().filter(v -> !v.isValue()).collect(Collectors.toList()).size();
+//	}
+
+//	public String getInfo() {
+//		return "Votes: " + getTotalVotes() + " Yes:" + getPositiveVotes() + "% No:" + getNegativeVotes() + "%";
+//	}
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", proposal=" + proposal + ", title=" + title + ", text=" + text + ", commentParent=" + commentParent + "]";
+		return "Comment [id=" + id + ", proposal=" + proposal + ", title=" + title + ", text=" + text
+				+ ", commentParent=" + commentParent + "]";
 	}
 
 }

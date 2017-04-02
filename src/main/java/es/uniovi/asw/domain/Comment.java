@@ -1,7 +1,6 @@
 package es.uniovi.asw.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

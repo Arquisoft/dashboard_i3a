@@ -17,6 +17,16 @@ public class ProposalTest {
 		assertTrue(proposal.getOwner().equals(user));
 		assertTrue(proposal.getTitle().equals("Peace"));
 		assertTrue(proposal.getDescription().equals("Peace in the world"));
+		
+		proposal.setId(1L);
+		proposal.setTitle("Peace");
+		proposal.setDescription("Peace in the world");
+		proposal.setOwner(user);
+		proposal.setVotes(null);
+		
+		assertTrue(proposal.getOwner().equals(user));
+		assertTrue(proposal.getTitle().equals("Peace"));
+		assertTrue(proposal.getDescription().equals("Peace in the world"));
 	}
 
 }

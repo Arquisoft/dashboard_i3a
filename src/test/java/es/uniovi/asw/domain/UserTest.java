@@ -21,5 +21,22 @@ public class UserTest {
 		assertTrue(user.getDNI().equals("71374828"));
 		assertTrue(user.getNationality().equals("Spanish"));
 		assertTrue(user.getGender().equals("male"));
+		
+		user = new User();
+		user.setLogin("pablo");
+		user.setPassword("password");
+		user.setFirstName("Pablo");
+		user.setLastName("García");
+		user.setAddress("Adosinda");
+		user.setNationality("Spanish");
+		user.setDNI("71374828");
+		
+		assertTrue(user.getLogin().equals("pablo"));
+		assertTrue(user.getPassword().equals("password"));
+		assertTrue(user.getFirstName().equals("Pablo"));
+		assertTrue(user.getLastName().equals("García"));
+		assertTrue(user.getNationality().equals("Spanish"));
+		assertTrue(user.getDNI().equals("71374828"));
+		assertTrue(user.getNationality().equals("Spanish"));
 	}
 }

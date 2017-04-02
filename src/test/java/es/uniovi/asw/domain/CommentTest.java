@@ -18,6 +18,19 @@ public class CommentTest {
 		assertTrue(comment.getProposal().equals(proposal));
 		assertTrue(comment.getTitle().equals("Test"));
 		assertTrue(comment.getTitle().equals("Test"));
+		
+		comment = new Comment();
+		comment.setId(1L);
+		comment.setProposal(proposal);
+		comment.setTitle("Test");
+		comment.setText("Test");
+		comment.setVotes(null);
+		comment.setCommentParent(null);
+		comment.setCommentChilds(null);
+
+		assertTrue(comment.getProposal().equals(proposal));
+		assertTrue(comment.getTitle().equals("Test"));
+		assertTrue(comment.getTitle().equals("Test"));
 	}
 
 }

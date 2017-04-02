@@ -19,6 +19,16 @@ public class VoteCommentTest {
 		assertTrue(voteComment.getUser().equals(user));
 		assertTrue(voteComment.getComment().equals(comment));
 		assertTrue(voteComment.isValue() == true);
+		
+		voteComment = new VoteComment();
+		voteComment.setId(1L);
+		voteComment.setUser(user);
+		voteComment.setValue(true);
+		voteComment.setComment(comment);
+		
+		assertTrue(voteComment.getUser().equals(user));
+		assertTrue(voteComment.getComment().equals(comment));
+		assertTrue(voteComment.isValue() == true);
 	}
 
 }

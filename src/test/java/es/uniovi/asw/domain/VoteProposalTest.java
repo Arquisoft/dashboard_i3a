@@ -17,6 +17,14 @@ public class VoteProposalTest {
 		assertTrue(voteProposal.getUser().equals(user));
 		assertTrue(voteProposal.getProposal().equals(proposal));
 		assertTrue(voteProposal.isValue() == true);
+		
+		voteProposal.setProposal(proposal);
+		voteProposal.setUser(user);
+		voteProposal.setValue(true);
+		
+		assertTrue(voteProposal.getUser().equals(user));
+		assertTrue(voteProposal.getProposal().equals(proposal));
+		assertTrue(voteProposal.isValue() == true);
 	}
 
 }

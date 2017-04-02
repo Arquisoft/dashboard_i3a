@@ -1,3 +1,8 @@
+h4 {
+	font: bold;
+	color: blue;
+}
+
 a:focus, a:hover, a {
 	outline: none;
 	text-decoration: none;
@@ -10,7 +15,7 @@ li, ul {
 }
 
 .home {
-	background: #f6f7fa;
+	background: #A9BCF5;
 }
 
 #navigation {

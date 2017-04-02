@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="pieChart.js"></script>
 <script src="barChart.js"></script>
 <script>
 	function beginrefresh() {
@@ -63,34 +62,45 @@
 							<table>
 								<tr th:each="proposal,i:${proposals}">
 									<td>
-										<div class="media">
-											<p class="pull-right">
-												<small>AQUI LA FECHA DE CADA PROPUESTA</small>
-											</p>
-											<a class="media-left" href="#"> <img src="u.jpg" />
-											</a>
-											<div class="media-body">
-												<h4 class="media-heading user_name"></h4>
-												<p th:text="${proposal.proposal.owner.firstName}"></p>
-												<p th:text="${proposal.proposal.owner.lastName}"></p>
-												<div th:if="${not #lists.isEmpty(tblUserList)}">
-													<div th:each="proposal.proposal.comments ,i:${comment}">
-														<p th:text="${comment}"></p>
-													</div>
+										<div class="panel panel-white post panel-shadow">
+											<div class="post-heading">
+												<div class="pull-left image">
+													<img src="u.jpg" class="img-circle avatar"
+														alt="user profile image" />
 												</div>
-												<p>NUMERO DE LIKES Y DISLIKES</p>
+												<div class="pull-left meta">
+													<div class="title h5">
+														<p th:text="${proposal.proposal.owner.firstName}"
+															style="font: bold;"></p>
+														made a post.
+													</div>
+													<h6 class="text-muted time">1 minute ago</h6>
+												</div>
+											</div>
+											<div class="post-description">
+												<p th:text="${proposal.proposal.description}"></p>
+												<div class="stats">
+													<p th:text="${proposal.votesInformation.info}"></p>
+												</div>
+											</div>
+											<div class="post-footer">
+												<ul class="comments-list">
+													<li class="comment">
+														<div th:each="com ,i:${proposal.proposal.comments}">
+															<a class="pull-left" href="#"> <img class="avatar"
+																src="u.jpg" alt="avatar" />
+															</a>
+															<div class="comment-body">
+																<div class="comment-heading">
+																	<h4 class="user" th:text="${com.user.firstName}"></h4>
+																</div>
+																<p th:text="${com.text}"></p>
+															</div>
+														</div>
+													</li>
+												</ul>
 											</div>
 										</div>
-									</td>
-									<td>
-										<p th:text="${proposal.votesInformation.total}"></p>
-										<p th:text="${proposal.votesInformation.totalYes}"></p>
-										<p th:text="${proposal.votesInformation.totalNo}"></p>
-										
-									</td>
-									<td>
-										<div id="Anthony_chart_div"
-											style="width: 100px; height: 50px; border: 1px solid #ccc"></div>
 									</td>
 								</tr>
 							</table>

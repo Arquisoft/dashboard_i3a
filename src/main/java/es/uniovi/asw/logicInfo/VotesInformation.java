@@ -74,5 +74,8 @@ public class VotesInformation {
 		return "With a participation of " + getTotal() + " citizens, there are the next results: \n\t Yes: "
 				+ getPerYes() + "%\n\t No:" + getPerNo();
 	}
+	public String getInfo() {
+		return "Votes: " + total + " Yes:" + perYes + "% No:" + perNo + "%";
+	}
 
 }

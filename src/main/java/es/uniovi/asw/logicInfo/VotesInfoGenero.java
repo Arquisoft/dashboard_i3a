@@ -60,11 +60,11 @@ public class VotesInfoGenero extends VotesInformation {
 	}
 
 	private void setPercentages() {
-		if (getTotal()==0){
-			this.femalePerNo = getFemaleNumberNo()>0 ? (getFemaleNumberNo() / getTotal()) * 100 : 0;
-			this.femalePerYes = getFemaleNumberYes()>0 ? (getFemaleNumberYes() / getTotal()) * 100 : 0;
-			this.malePerNo = getFemaleNumberYes() > 0 ? (getMaleNumberNo() / getTotal()) * 100: 0;
-			this.malePerYes = getMaleNumberYes() > 0? (getMaleNumberYes() / getTotal()) * 100 : 0;
+		if (getTotal()!=0){
+			this.femalePerNo = getFemaleNumberNo()>0 ? (getFemaleNumberNo() /(double) getTotal()) * 100 : 0;
+			this.femalePerYes = getFemaleNumberYes()>0 ? (getFemaleNumberYes() / (double) getTotal()) * 100 : 0;
+			this.malePerNo = getFemaleNumberYes() > 0 ? (getMaleNumberNo() / (double) getTotal()) * 100: 0;
+			this.malePerYes = getMaleNumberYes() > 0? (getMaleNumberYes() / (double) getTotal()) * 100 : 0;
 		}
 	}
 

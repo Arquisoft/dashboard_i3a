@@ -114,12 +114,12 @@ public class VotesInfoRangoEdad extends VotesInformation {
 
 	private void setPercentages() {
 		if (getTotal()>0){
-			this.youngPerYes = getYoungNumberYes()>0? (getYoungNumberYes() / getTotal()) * 100 : 0;
-			this.youngPerNo = getYoungNumberYes()>0? (getYoungNumberNo() / getTotal()) * 100 : 0;
-			this.adultgPerYes = getAdultNumberYes()>0? (getAdultNumberYes() / getTotal()) * 100 : 0;
-			this.adultgPerNo = getAdultNumberNo()>0?(getAdultNumberNo() / getTotal()) * 100 : 0;
-			this.oldPerYes = getOldNumberYes()>0 ? (getOldNumberYes() / getTotal()) * 100 : 0;
-			this.oldPerNo = getOldNumberNo()>0 ? (getOldNumberNo() / getTotal()) * 100 : 0;
+			this.youngPerYes = getYoungNumberYes()>0? (getYoungNumberYes() / (double) getTotal()) * 100 : 0;
+			this.youngPerNo = getYoungNumberYes()>0? (getYoungNumberNo() /(double) getTotal()) * 100 : 0;
+			this.adultgPerYes = getAdultNumberYes()>0? (getAdultNumberYes() /(double) getTotal()) * 100 : 0;
+			this.adultgPerNo = getAdultNumberNo()>0?(getAdultNumberNo() / (double) getTotal()) * 100 : 0;
+			this.oldPerYes = getOldNumberYes()>0 ? (getOldNumberYes() / (double) getTotal()) * 100 : 0;
+			this.oldPerNo = getOldNumberNo()>0 ? (getOldNumberNo() /(double) getTotal()) * 100 : 0;
 		}	
 	}
 

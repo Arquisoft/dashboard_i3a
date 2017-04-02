@@ -30,6 +30,7 @@ public class UserTest {
 		user.setAddress("Adosinda");
 		user.setNationality("Spanish");
 		user.setDNI("71374828");
+		user.setGender("female");
 		
 		assertTrue(user.getLogin().equals("pablo"));
 		assertTrue(user.getPassword().equals("password"));
@@ -38,5 +39,6 @@ public class UserTest {
 		assertTrue(user.getNationality().equals("Spanish"));
 		assertTrue(user.getDNI().equals("71374828"));
 		assertTrue(user.getNationality().equals("Spanish"));
+		assertTrue(user.getGender().equals("female"));
 	}
 }

@@ -40,8 +40,8 @@ public class VotesInformation {
 		this.totalYes = y;
 		this.totalNo = n;
 		
-		this.perNo = getTotalNo()>0 ? (getTotalNo()/getTotal()) * 100 : 0;
-		this.perYes = getTotalYes()>0 ? (getTotalYes()/getTotal()) * 100 : 0;
+		this.perNo = n>0 ? (n/(double)(y+n)) * 100 : 0;
+		this.perYes = y>0 ? (y/(double)(y+n)) * 100 : 0;
 
 	}
 

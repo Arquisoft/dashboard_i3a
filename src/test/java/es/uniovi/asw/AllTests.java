@@ -12,11 +12,15 @@ import es.uniovi.asw.domain.VoteProposalTest;
 import es.uniovi.asw.dto.ProposalDtoTest;
 import es.uniovi.asw.dto.UserDtoTest;
 import es.uniovi.asw.dto.UserLoginTest;
+import es.uniovi.asw.logicinfo.VotesInfoGeneroTest;
+import es.uniovi.asw.logicinfo.VotesInfoRangoEdadTest;
+import es.uniovi.asw.logicinfo.VotesInformationTest;
 import es.uniovi.asw.util.AgeCalculatorTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ UserTest.class, ProposalTest.class, VoteCommentTest.class, VoteProposalTest.class, CommentTest.class,
-		AgeCalculatorTest.class, UserLoginTest.class, UserDtoTest.class, ProposalDtoTest.class })
+		AgeCalculatorTest.class, UserLoginTest.class, UserDtoTest.class, ProposalDtoTest.class,VotesInfoGeneroTest.class,
+		VotesInfoRangoEdadTest.class, VotesInformationTest.class})
 public class AllTests {
 
 }

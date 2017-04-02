@@ -1,6 +1,7 @@
 package es.uniovi.asw.domain;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -36,15 +37,15 @@ public class User {
 
 	@OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Proposal> proposals;
+	private List<Proposal> proposals = new ArrayList<>();;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<VoteProposal> proposal_votes;
+	private List<VoteProposal> proposal_votes = new ArrayList<>();;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Comment> comments;
+	private List<Comment> comments = new ArrayList<>();
 
 	public User() {
 	}
@@ -243,6 +244,10 @@ public class User {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+	
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getGender() {

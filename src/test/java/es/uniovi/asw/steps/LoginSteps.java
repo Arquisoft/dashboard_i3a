@@ -7,26 +7,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-<<<<<<< HEAD
 import org.springframework.context.ConfigurableApplicationContext;
-=======
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationContextLoader;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
->>>>>>> f725ea723132245d5feebd639ddce1d09ec5c28c
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import es.uniovi.asw.Application;
 import es.uniovi.asw.MainController;
 
 public class LoginSteps {

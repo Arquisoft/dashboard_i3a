@@ -16,17 +16,17 @@ VALUES
 	(2, 'Peace in the world', 'This is a mock description'),
 	(3, 'Free videogames', 'This is a mock description'),
 	(4, 'Politicians to jail', 'This is a mock description'),
-	(5, 'Jokes aren't crime', 'This is a mock description');
+	(5, 'Jokes aren´t crime', 'This is a mock description');
 
 INSERT INTO Votesproposals (id_proposal, id_user, value)
 VALUES
 	(1, 1, false),
 	(2, 2, true),
 	(3, 3, true),
-	(5,6,false),
-	(4,9,true),
-	(4,8,false),
-	(4,7,false);
+	(5, 6, false),
+	(4, 9, true),
+	(4, 8, false),
+	(4, 7, false);
 		
 INSERT INTO Comments (id_proposal, id_user, id_commentparent, title, text) 
 VALUES

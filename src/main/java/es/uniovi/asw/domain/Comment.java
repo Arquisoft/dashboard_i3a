@@ -1,6 +1,7 @@
 package es.uniovi.asw.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -120,6 +121,22 @@ public class Comment {
 	
 	public User getUser(){
 		return this.user;
+	}
+	
+	public int getTotalVotes(){
+		return votes.size();
+	}
+	
+	public int getPositiveVotes(){
+		return votes.stream().filter(v->v.isValue()).collect(Collectors.toList()).size();
+	}
+	
+	public int getNegativeVotes(){
+		return votes.stream().filter(v->!v.isValue()).collect(Collectors.toList()).size();
+	}
+	
+	public String getInfo() {
+		return "Votes: " + getTotalVotes() + " Yes:" + getPositiveVotes() + "% No:" + getNegativeVotes() + "%";
 	}
 
 	@Override

@@ -4,17 +4,17 @@ VALUES
 	('pablo@example.com', 'asdf', 'Pablo', 'Garcia', 'Calle Asturias', 'Español', '00000002A', '1961-01-01', 'male'),
 	('david@example.com', 'asdf', 'David', 'Garcia', 'Calle Azteca', 'Español', '00000003A', '1972-01-01', 'male'),
 	('Juan@example.com', 'asdf', 'Juan', 'Torres', 'Calle Federico Garcia Lorca', 'Español', '90500084Y', '1983-01-01', 'male'),
-	('Luis@example.com', 'asdf', 'Luis', 'López', 'Calle Adosinda', 'Español', '19160962F', '1994-01-01', 'male');
-	('Ana@example.com', 'asdf', 'Ana', 'Fernandez', 'Calle Adosinda', 'Español', '19162362F', '1932-01-01', 'female');
-	('Natalia@example.com', 'asdf', 'Natalia', 'Herrero', 'Calle Adosinda', 'Español', '34160962F', '1979-01-01', 'female');
-	('Laura@example.com', 'asdf', 'Laura', 'Gonzalez', 'Calle Adosinda', 'Español', '19987962F', '1994-01-01', 'female');
+	('Luis@example.com', 'asdf', 'Luis', 'López', 'Calle Adosinda', 'Español', '19160962F', '1994-01-01', 'male'),
+	('Ana@example.com', 'asdf', 'Ana', 'Fernandez', 'Calle Adosinda', 'Español', '19162362F', '1932-01-01', 'female'),
+	('Natalia@example.com', 'asdf', 'Natalia', 'Herrero', 'Calle Adosinda', 'Español', '34160962F', '1979-01-01', 'female'),
+	('Laura@example.com', 'asdf', 'Laura', 'Gonzalez', 'Calle Adosinda', 'Español', '19987962F', '1994-01-01', 'female'),
 	('Claudia@example.com', 'asdf', 'Claudia', 'Saavedra', 'Calle Adosinda', 'Español', '98765432F', '1994-01-01', 'female');	
 
 INSERT INTO Proposals (id_owner, title, description) 
 VALUES
 	(1, 'Justice for everyone', 'This is a mock description'),
 	(2, 'Peace in the world', 'This is a mock description'),
-	(3, 'Free videogames', 'This is a mock description');
+	(3, 'Free videogames', 'This is a mock description'),
 	(4, 'Politicians to jail', 'This is a mock description'),
 	(5, 'Jokes aren't crime', 'This is a mock description');
 

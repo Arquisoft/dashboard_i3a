@@ -1,7 +1,6 @@
 package es.uniovi.asw.dto;
 
 import es.uniovi.asw.domain.Proposal;
-import es.uniovi.asw.logicInfo.IntermedioProposal;
 import es.uniovi.asw.logicInfo.VotesInfoGenero;
 import es.uniovi.asw.logicInfo.VotesInfoRangoEdad;
 import es.uniovi.asw.logicInfo.VotesInformation;
@@ -15,10 +14,9 @@ public class ProposalDto {
 
 	public ProposalDto(Proposal proposal) {
 		setProposal(proposal);
-		IntermedioProposal aux = new IntermedioProposal(proposal.getVotes());
-		setVotesInformation(aux.getVotesInformation());
-		setVotesInfoRangoEdad(aux.getVotesInfoRangoEdad());
-		setVotesInfoGenero(aux.getVotesInfoGenero());
+		setVotesInformation(new VotesInformation(proposal.getVotes()));
+		setVotesInfoRangoEdad(new VotesInfoRangoEdad(proposal.getVotes()));
+		setVotesInfoGenero(new VotesInfoGenero(proposal.getVotes()));
 	}
 
 	public Proposal getProposal() {

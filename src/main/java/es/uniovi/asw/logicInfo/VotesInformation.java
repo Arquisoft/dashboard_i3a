@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import es.uniovi.asw.domain.Vote;
+import es.uniovi.asw.domain.VoteProposal;
 import es.uniovi.asw.repository.ProposalRepository;
 
 public class VotesInformation {
 
-	private List<Vote> votes;
+	private List<VoteProposal> votes;
 	private int total;
 	private int totalYes;
 	private int totalNo;
@@ -19,14 +20,15 @@ public class VotesInformation {
 	@Autowired
 	ProposalRepository proposalRepository;
 
-	public VotesInformation(List<Vote> votes) {
+	public VotesInformation(List<VoteProposal> votes2) {
 		
-		this.votes = votes;
-		this.total = votes.size();
+		this.votes = votes2;
+		this.total = votes2.size();
 		setInfoVotes();
 	}
 
 	private void setInfoVotes() {
+		
 		int y = 0, n = 0;
 		for (Vote each : votes) {
 			if (each.isValue()) {
@@ -37,12 +39,13 @@ public class VotesInformation {
 		}
 		this.totalYes = y;
 		this.totalNo = n;
-		this.perNo = (getTotalNo() / getTotal()) * 100;
-		this.perYes = (getTotalYes() / getTotal()) * 100;
+		
+		this.perNo = getTotalNo()>0 ? (getTotalNo()/getTotal()) * 100 : 0;
+		this.perYes = getTotalYes()>0 ? (getTotalYes()/getTotal()) * 100 : 0;
 
 	}
 
-	public List<Vote> getVotes() {
+	public List<VoteProposal> getVotes() {
 		return votes;
 	}
 

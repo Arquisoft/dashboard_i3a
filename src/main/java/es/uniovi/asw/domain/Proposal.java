@@ -1,6 +1,7 @@
 package es.uniovi.asw.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -37,11 +38,11 @@ public class Proposal implements Serializable{
 	
 	@OneToMany(mappedBy = "proposal", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<VoteProposal> votes;
+	private List<VoteProposal> votes = new ArrayList<VoteProposal>();
 	
 	@OneToMany(mappedBy = "proposal", fetch=FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Comment> comments;
+	private List<Comment> comments = new ArrayList<Comment>();
 		
 	public Proposal() {
 	}
@@ -91,6 +92,10 @@ public class Proposal implements Serializable{
 	public void setVotes(List<VoteProposal> votes) {
 		this.votes = votes;
 	}
+	
+	public void addVote(VoteProposal vote){
+		this.votes.add(vote);
+	}
 
 	public List<Comment> getComments() {
 		return comments;
@@ -98,6 +103,10 @@ public class Proposal implements Serializable{
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+	
+	public void addComment(Comment comment){
+		this.comments.add(comment);
 	}
 
 	@Override

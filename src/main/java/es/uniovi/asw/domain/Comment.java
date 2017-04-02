@@ -113,6 +113,14 @@ public class Comment {
 	public void setCommentChilds(List<Comment> commentChilds) {
 		this.commentChilds = commentChilds;
 	}
+	
+	public void setUser(User user){
+		this.user=user;
+	}
+	
+	public User getUser(){
+		return this.user;
+	}
 
 	@Override
 	public String toString() {

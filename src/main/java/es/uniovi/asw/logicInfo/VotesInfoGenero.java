@@ -3,6 +3,7 @@ package es.uniovi.asw.logicInfo;
 import java.util.List;
 
 import es.uniovi.asw.domain.Vote;
+import es.uniovi.asw.domain.VoteProposal;
 
 public class VotesInfoGenero extends VotesInformation {
 
@@ -15,7 +16,7 @@ public class VotesInfoGenero extends VotesInformation {
 	private int maleNumberNo;
 	private int femaleNumberNo;
 
-	public VotesInfoGenero(List<Vote> votes) {
+	public VotesInfoGenero(List<VoteProposal> votes) {
 		super(votes);
 		setMoreInfo();
 	}
@@ -59,15 +60,16 @@ public class VotesInfoGenero extends VotesInformation {
 	}
 
 	private void setPercentages() {
-		this.femalePerNo = (getFemaleNumberNo() / getTotal()) * 100;
-		this.femalePerYes = (getFemaleNumberYes() / getTotal()) * 100;
-		this.malePerNo = (getMaleNumberNo() / getTotal()) * 100;
-		this.malePerYes = (getMaleNumberYes() / getTotal()) * 100;
-
+		if (getTotal()==0){
+			this.femalePerNo = getFemaleNumberNo()>0 ? (getFemaleNumberNo() / getTotal()) * 100 : 0;
+			this.femalePerYes = getFemaleNumberYes()>0 ? (getFemaleNumberYes() / getTotal()) * 100 : 0;
+			this.malePerNo = getFemaleNumberYes() > 0 ? (getMaleNumberNo() / getTotal()) * 100: 0;
+			this.malePerYes = getMaleNumberYes() > 0? (getMaleNumberYes() / getTotal()) * 100 : 0;
+		}
 	}
 
 	private void setNumberOfVotes() {
-		List<Vote> aux = getVotes();
+		List<VoteProposal> aux = getVotes();
 		for (Vote each : aux) {
 			if (each.getUser().getGender().equals("male")) {
 				if (each.isValue()) {

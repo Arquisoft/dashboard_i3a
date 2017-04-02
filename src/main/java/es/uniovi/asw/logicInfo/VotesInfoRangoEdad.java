@@ -3,6 +3,7 @@ package es.uniovi.asw.logicInfo;
 import java.util.List;
 
 import es.uniovi.asw.domain.Vote;
+import es.uniovi.asw.domain.VoteProposal;
 import es.uniovi.asw.util.AgeCalculator;
 
 public class VotesInfoRangoEdad extends VotesInformation {
@@ -24,8 +25,8 @@ public class VotesInfoRangoEdad extends VotesInformation {
 	private double oldPerNo;
 	private double adultgPerNo;
 
-	public VotesInfoRangoEdad(List<Vote> votes) {
-		super(votes);
+	public VotesInfoRangoEdad(List<VoteProposal> list) {
+		super(list);
 		setMoreInfo();
 	}
 
@@ -83,10 +84,9 @@ public class VotesInfoRangoEdad extends VotesInformation {
 	}
 
 	private void setNumberOfVotes() {
-		List<Vote> aux = getVotes();
 		int years;
 		boolean vote;
-		for (Vote each : aux) {
+		for (Vote each : getVotes()) {
 			years = AgeCalculator.calculateAge(each.getUser().getBirthday());
 			vote = each.isValue();
 			if (years >= 18 && years <= 30) {
@@ -113,13 +113,14 @@ public class VotesInfoRangoEdad extends VotesInformation {
 	}
 
 	private void setPercentages() {
-		this.youngPerYes = (getYoungNumberYes() / getTotal()) * 100;
-		this.youngPerNo = (getYoungNumberNo() / getTotal()) * 100;
-		this.adultgPerYes = (getAdultNumberYes() / getTotal()) * 100;
-		this.adultgPerNo = (getAdultNumberNo() / getTotal()) * 100;
-		this.oldPerYes = (getOldNumberYes() / getTotal()) * 100;
-		this.oldPerNo = (getOldNumberNo() / getTotal()) * 100;
-
+		if (getTotal()>0){
+			this.youngPerYes = getYoungNumberYes()>0? (getYoungNumberYes() / getTotal()) * 100 : 0;
+			this.youngPerNo = getYoungNumberYes()>0? (getYoungNumberNo() / getTotal()) * 100 : 0;
+			this.adultgPerYes = getAdultNumberYes()>0? (getAdultNumberYes() / getTotal()) * 100 : 0;
+			this.adultgPerNo = getAdultNumberNo()>0?(getAdultNumberNo() / getTotal()) * 100 : 0;
+			this.oldPerYes = getOldNumberYes()>0 ? (getOldNumberYes() / getTotal()) * 100 : 0;
+			this.oldPerNo = getOldNumberNo()>0 ? (getOldNumberNo() / getTotal()) * 100 : 0;
+		}	
 	}
 
 	@Override

@@ -19,11 +19,11 @@ VALUES
 	(2, 2, true),
 	(3, 3, true);
 	
-INSERT INTO Comments (id_proposal, id_commentparent, title, text) 
+INSERT INTO Comments (id_proposal, id_user, id_commentparent, title, text) 
 VALUES
-	(1, null, 'Comment 1', 'This is a mock comment 1'),
-	(1, 1, 'Comment 2', 'This is a mock comment of comment 1'),
-	(2, 1, 'Comment 3', 'This is another mock comment');
+	(1, 1, null, 'Comment 1', 'This is a mock comment 1'),
+	(1, 3 ,1, 'Comment 2', 'This is a mock comment of comment 1'),
+	(2, 2, 1, 'Comment 3', 'This is another mock comment');
 
 INSERT INTO Votescomments (id_comment, id_user, value)
 VALUES

@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
+import org.junit.After;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -55,5 +56,6 @@ public class LandingSteps {
   public void the_client_receives_the_string(String str) throws Throwable {
    assertThat(result.getResponse().getContentAsString(), containsString(str));
   }
+  
 
 }
